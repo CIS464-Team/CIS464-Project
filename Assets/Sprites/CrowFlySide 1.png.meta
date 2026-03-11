@@ -1,55 +1,55 @@
 fileFormatVersion: 2
-guid: f7b2d39d7f3f3de4c9af6a9b087f8052
+guid: 2881f05e9e07dad48969e8108b187835
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1751664513282473840
-    second: CrowFlySide_0
+      213: -6950906603214844360
+    second: CrowFlySide 1_0
   - first:
-      213: 4797908050343539830
-    second: CrowFlySide_1
+      213: -9120954344909050758
+    second: CrowFlySide 1_1
   - first:
-      213: -6576874097903251021
-    second: CrowFlySide_2
+      213: -8065264113047641075
+    second: CrowFlySide 1_2
   - first:
-      213: 1756027935136782638
-    second: CrowFlySide_3
+      213: -1749442661935834866
+    second: CrowFlySide 1_3
   - first:
-      213: 5467082374504618732
-    second: CrowFlySide_4
+      213: -6577490893359194835
+    second: CrowFlySide 1_4
   - first:
-      213: 1059844080158775833
-    second: CrowFlySide_5
+      213: 4078137988909381272
+    second: CrowFlySide 1_5
   - first:
-      213: 128254155691069354
-    second: CrowFlySide_6
+      213: 4687259215181017492
+    second: CrowFlySide 1_6
   - first:
-      213: -704897706566785910
-    second: CrowFlySide_7
+      213: -8278114522569205979
+    second: CrowFlySide 1_7
   - first:
-      213: 1923068118082393833
-    second: CrowFlySide_8
+      213: 2006712447984623814
+    second: CrowFlySide 1_8
   - first:
-      213: -3119140245849403600
-    second: CrowFlySide_9
+      213: -2314621526401642696
+    second: CrowFlySide 1_9
   - first:
-      213: 3378676036502958491
-    second: CrowFlySide_10
+      213: 4300707105051263996
+    second: CrowFlySide 1_10
   - first:
-      213: 5678944816650013720
-    second: CrowFlySide_11
+      213: -1460468849473651770
+    second: CrowFlySide 1_11
   - first:
-      213: -3909780383362931708
-    second: CrowFlySide_12
+      213: 6248956341711136027
+    second: CrowFlySide 1_12
   - first:
-      213: -2779937923064461916
-    second: CrowFlySide_13
+      213: -1585161492063701282
+    second: CrowFlySide 1_13
   - first:
-      213: -8339972728922266887
-    second: CrowFlySide_14
+      213: 4049630016723558997
+    second: CrowFlySide 1_14
   - first:
-      213: 8786446303814971969
-    second: CrowFlySide_15
+      213: -2138050639634879233
+    second: CrowFlySide 1_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -145,7 +145,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CrowFlySide_0
+      name: CrowFlySide 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -160,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 07ffbd718992f4810800000000000000
-      internalID: 1751664513282473840
+      spriteID: 83e4678954b698f90800000000000000
+      internalID: -6950906603214844360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrowFlySide_1
+      name: CrowFlySide 1_1
       rect:
         serializedVersion: 2
         x: 63
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 674b6bd83f7959240800000000000000
-      internalID: 4797908050343539830
+      spriteID: a7ce323295cdb6180800000000000000
+      internalID: -9120954344909050758
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrowFlySide_2
+      name: CrowFlySide 1_2
       rect:
         serializedVersion: 2
         x: 126
@@ -204,14 +204,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3b1520e8adf3ab4a0800000000000000
-      internalID: -6576874097903251021
+      spriteID: d04e612550d621090800000000000000
+      internalID: -8065264113047641075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrowFlySide_3
+      name: CrowFlySide 1_3
       rect:
         serializedVersion: 2
         x: 189
@@ -226,14 +226,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e299d796a1aae5810800000000000000
-      internalID: 1756027935136782638
+      spriteID: e09966cfa2bb8b7e0800000000000000
+      internalID: -1749442661935834866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrowFlySide_4
+      name: CrowFlySide 1_4
       rect:
         serializedVersion: 2
         x: 252
@@ -248,14 +248,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cea952a247afedb40800000000000000
-      internalID: 5467082374504618732
+      spriteID: d2d55fba1ee08b4a0800000000000000
+      internalID: -6577490893359194835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrowFlySide_5
+      name: CrowFlySide 1_5
       rect:
         serializedVersion: 2
         x: 315
@@ -270,14 +270,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 91a1a2b539255be00800000000000000
-      internalID: 1059844080158775833
+      spriteID: 89638fdd4e4789830800000000000000
+      internalID: 4078137988909381272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrowFlySide_6
+      name: CrowFlySide 1_6
       rect:
         serializedVersion: 2
         x: 378
@@ -292,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aaf0fee9976a7c100800000000000000
-      internalID: 128254155691069354
+      spriteID: 4917a0b0c6d7c0140800000000000000
+      internalID: 4687259215181017492
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrowFlySide_7
+      name: CrowFlySide 1_7
       rect:
         serializedVersion: 2
         x: 441
@@ -314,14 +314,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a8469154543b736f0800000000000000
-      internalID: -704897706566785910
+      spriteID: 527924873ba3e1d80800000000000000
+      internalID: -8278114522569205979
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrowFlySide_8
+      name: CrowFlySide 1_8
       rect:
         serializedVersion: 2
         x: 504
@@ -336,14 +336,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e61e29b34c10ba10800000000000000
-      internalID: 1923068118082393833
+      spriteID: 6c06a74e65649db10800000000000000
+      internalID: 2006712447984623814
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrowFlySide_9
+      name: CrowFlySide 1_9
       rect:
         serializedVersion: 2
         x: 567
@@ -358,14 +358,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 03f8589e87696b4d0800000000000000
-      internalID: -3119140245849403600
+      spriteID: 83f8b513cffc0efd0800000000000000
+      internalID: -2314621526401642696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrowFlySide_10
+      name: CrowFlySide 1_10
       rect:
         serializedVersion: 2
         x: 630
@@ -380,14 +380,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b9132e644f773ee20800000000000000
-      internalID: 3378676036502958491
+      spriteID: cf3449f635e2fab30800000000000000
+      internalID: 4300707105051263996
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrowFlySide_11
+      name: CrowFlySide 1_11
       rect:
         serializedVersion: 2
         x: 693
@@ -402,14 +402,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 81c487fe83aafce40800000000000000
-      internalID: 5678944816650013720
+      spriteID: 6cb799db15f5bbbe0800000000000000
+      internalID: -1460468849473651770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrowFlySide_12
+      name: CrowFlySide 1_12
       rect:
         serializedVersion: 2
         x: 756
@@ -424,14 +424,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 404acdbc47badb9c0800000000000000
-      internalID: -3909780383362931708
+      spriteID: b15ed943fa0c8b650800000000000000
+      internalID: 6248956341711136027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrowFlySide_13
+      name: CrowFlySide 1_13
       rect:
         serializedVersion: 2
         x: 819
@@ -446,14 +446,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4a50b1e003dab69d0800000000000000
-      internalID: -2779937923064461916
+      spriteID: ed63ae18500600ae0800000000000000
+      internalID: -1585161492063701282
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrowFlySide_14
+      name: CrowFlySide 1_14
       rect:
         serializedVersion: 2
         x: 882
@@ -468,14 +468,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9f2a4287df6724c80800000000000000
-      internalID: -8339972728922266887
+      spriteID: 552219a5b0d233830800000000000000
+      internalID: 4049630016723558997
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrowFlySide_15
+      name: CrowFlySide 1_15
       rect:
         serializedVersion: 2
         x: 945
@@ -490,8 +490,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1427fe85c5abfe970800000000000000
-      internalID: 8786446303814971969
+      spriteID: ffc24c8654e1452e0800000000000000
+      internalID: -2138050639634879233
       vertices: []
       indices: 
       edges: []
@@ -500,7 +500,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 934240fdf979aa84f9b8af7f279707c7
+    spriteID: da7eb355fd5c8f7459aa0411cf4a29e1
     internalID: 0
     vertices: []
     indices: 
@@ -512,22 +512,22 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":63.0,"y":63.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      CrowFlySide_0: 1751664513282473840
-      CrowFlySide_1: 4797908050343539830
-      CrowFlySide_10: 3378676036502958491
-      CrowFlySide_11: 5678944816650013720
-      CrowFlySide_12: -3909780383362931708
-      CrowFlySide_13: -2779937923064461916
-      CrowFlySide_14: -8339972728922266887
-      CrowFlySide_15: 8786446303814971969
-      CrowFlySide_2: -6576874097903251021
-      CrowFlySide_3: 1756027935136782638
-      CrowFlySide_4: 5467082374504618732
-      CrowFlySide_5: 1059844080158775833
-      CrowFlySide_6: 128254155691069354
-      CrowFlySide_7: -704897706566785910
-      CrowFlySide_8: 1923068118082393833
-      CrowFlySide_9: -3119140245849403600
+      CrowFlySide 1_0: -6950906603214844360
+      CrowFlySide 1_1: -9120954344909050758
+      CrowFlySide 1_10: 4300707105051263996
+      CrowFlySide 1_11: -1460468849473651770
+      CrowFlySide 1_12: 6248956341711136027
+      CrowFlySide 1_13: -1585161492063701282
+      CrowFlySide 1_14: 4049630016723558997
+      CrowFlySide 1_15: -2138050639634879233
+      CrowFlySide 1_2: -8065264113047641075
+      CrowFlySide 1_3: -1749442661935834866
+      CrowFlySide 1_4: -6577490893359194835
+      CrowFlySide 1_5: 4078137988909381272
+      CrowFlySide 1_6: 4687259215181017492
+      CrowFlySide 1_7: -8278114522569205979
+      CrowFlySide 1_8: 2006712447984623814
+      CrowFlySide 1_9: -2314621526401642696
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
