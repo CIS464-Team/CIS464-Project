@@ -12,9 +12,9 @@ public class TutorialText : MonoBehaviour
 
     // Settings section in inspector
     [Header("Settings")]
-    [SerializeField] private string readMessage = "press E to read";
-    [SerializeField] private string movementMessage = "WASD/Arrows to move";
-    [SerializeField] private float fadeDuration = 0.5f;
+    [SerializeField] private string readMessage = "Press E To Read";
+    [SerializeField] private string movementMessage = "WASD/Arrows";
+    [SerializeField] private float fadeDuration = 1.5f;
 
     // Player Control section in inspector
     [Header("Player Control")]
