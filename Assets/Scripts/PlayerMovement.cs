@@ -20,11 +20,17 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         rb.linearVelocity = moveInput * moveSpeed;
-        
     }
 
     public void Move(InputAction.CallbackContext context)
     {
+        // Only continue if PlayerMovement is enabled 
+        if (!this.enabled) 
+        {
+            moveInput = Vector2.zero;
+            return; 
+        }
+
         animator.SetBool("isWalking", true);
 
         if (context.canceled)
