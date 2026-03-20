@@ -12,15 +12,22 @@ public class TutorialText : MonoBehaviour
 
     // Settings section in inspector
     [Header("Settings")]
-    [SerializeField] private string message = "press E to read";
-    [SerializeField] private float fadeDuration = 1.0f;
+    [SerializeField] private string readMessage = "press E to read";
+    [SerializeField] private string movementMessage = "WASD/Arrows to move";
+    [SerializeField] private float fadeDuration = 0.5f;
 
     // Player Control section in inspector
     [Header("Player Control")]
     [SerializeField] private PlayerMovement playerMovementScript; 
+    [SerializeField] private RuntimeAnimatorController playerController; 
     private Animator playerAnimator;
 
-    private bool isWaitingForInput = false;
+    // Managers section in inspector
+    [Header("Managers")]
+    [SerializeField] private TimelineControl timelineControl;
+
+    private bool isWaitingForE = false;
+    private bool isWaitingForAnyKey = false;
 
     // Called whenever script is loaded
     void Awake()
@@ -28,89 +35,121 @@ public class TutorialText : MonoBehaviour
         // Make tutorial text transparent initially
         if (canvasGroup != null) canvasGroup.alpha = 0;
         // Assign the user's string message to the TextMeshPro component
-        if (textElement != null) textElement.text = message;
+        if (textElement != null) textElement.text = readMessage;
     }
 
-    // Triggered by a signal at the end of TutorialCutscene
+    // Triggered by the first signal at the start of the letter interaction
     public void StartTutorialPrompt()
     {
+        // Pause the timeline playhead immediately
+        if (timelineControl != null) timelineControl.PauseTimeline();
+        
         // Look for PlayerMovement script inside Player GameObject
-        if (playerMovementScript != null) 
-        {
+        if (playerMovementScript != null) {
             // Temporarily disables the movement script 
-            // Triggers a 'if(!enabled)' check in PlayerMovement.cs
             playerMovementScript.enabled = false;
-            
-            // Create reference to Player GameObject that holds the script
-            GameObject playerObj = playerMovementScript.gameObject;
 
             // Set Player's Rigidbody2D velocity to zero
-            if (playerObj.TryGetComponent<Rigidbody2D>(out var rb))
+            if (playerMovementScript.TryGetComponent<Rigidbody2D>(out var rb)) 
             {
                 rb.linearVelocity = Vector2.zero;
             }
 
-            // Temporarily pause the player animations by setting Animator speed to 0
-            if (playerObj.TryGetComponent<Animator>(out playerAnimator))
+            // Temporarily pause the player animations
+            if (playerMovementScript.TryGetComponent<Animator>(out playerAnimator))
             {
                 playerAnimator.speed = 0;
             }
         }
-        
+
         // Stop any active fade routines to prevent conflicts
         StopAllCoroutines(); 
 
-        // Set waitingForInput to true after fade-in completes
-        StartCoroutine(FadeCanvas(1f, () => {isWaitingForInput = true;}));
+        // Set isWaitingForE to true after fade-in completes
+        StartCoroutine(FadeCanvas(1f, () => isWaitingForE = true));
+    }
+
+    // Triggered by the second signal once the paper has fully risen
+    public void StartAnyKeyPrompt()
+    {
+        // Pause the timeline again to hold the paper on screen
+        if (timelineControl != null) timelineControl.PauseTimeline();
+
+        // Change the text to the movement instructions
+        if (textElement != null) textElement.text = movementMessage;
+
+        // Fade the text back in and wait for any key press
+        StartCoroutine(FadeCanvas(1f, () => isWaitingForAnyKey = true));
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Check if we are waiting for input AND if E was pressed
-        if (isWaitingForInput && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+        // First, player presses E to start the paper rising animation
+        if (isWaitingForE && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
         {
-            // Set flag to false
-            isWaitingForInput = false;
+            isWaitingForE = false;
             
-            // Start text fadeout and re-enable player controls once fade is complete
+            // Fade text out and resume timeline playhead
             StartCoroutine(FadeCanvas(0f, () => {
-                
-                // Reenable the movement script
-                if (playerMovementScript != null) playerMovementScript.enabled = true;
-                
-                // Resume animations
-                if (playerAnimator != null) playerAnimator.speed = 1;
-                
-                // Disable Canvas once finished with tutorial prompt
-                canvasGroup.gameObject.SetActive(false); 
+                if (timelineControl != null) timelineControl.ResumeTimeline();
             }));
         }
+
+        // Second, player presses any key to finish the tutorial
+        if (isWaitingForAnyKey && Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame)
+        {
+            isWaitingForAnyKey = false;
+            
+            // Resume timeline for the final part of the animation
+            if (timelineControl != null) timelineControl.ResumeTimeline();
+
+            // Reenable player movement and reassign the Animator Controller
+            if (playerMovementScript != null) {
+                playerMovementScript.enabled = true;
+                
+                if (playerMovementScript.TryGetComponent<Animator>(out playerAnimator))
+                {
+                    // Plugs the walking/idle logic back into the player animator
+                    playerAnimator.runtimeAnimatorController = playerController;
+                    playerAnimator.speed = 1;
+                }
+            }
+
+            // Start monitoring for movement to fade the text out permanently
+            StartCoroutine(FadeAfterMovement());
+        }
+    }
+
+    // Wait for movement before final fade out
+    private IEnumerator FadeAfterMovement()
+    {
+        // Wait until the player presses any of the movement keys
+        yield return new WaitUntil(() => 
+            Keyboard.current.wKey.isPressed || Keyboard.current.aKey.isPressed || 
+            Keyboard.current.sKey.isPressed || Keyboard.current.dKey.isPressed ||
+            Keyboard.current.upArrowKey.isPressed || Keyboard.current.downArrowKey.isPressed ||
+            Keyboard.current.leftArrowKey.isPressed || Keyboard.current.rightArrowKey.isPressed);
+        
+        // Final fade out of the tutorial text
+        yield return StartCoroutine(FadeCanvas(0f));
     }
 
     // Fades canvas in or out based on targetAlpha
     private IEnumerator FadeCanvas(float targetAlpha, System.Action onComplete = null)
     {
-        // Store the alpha value we are starting from
         float startAlpha = canvasGroup.alpha;
         float time = 0;
 
-        // Loop until the timer reaches the set fade duration
         while (time < fadeDuration)
         {
             time += Time.deltaTime;
-
-            // Interpolate the alpha value based on the percentage of time passed
+            // Interpolate the alpha value based on time passed
             canvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, time / fadeDuration);
-
-            // Wait until the next frame before continuing the loop
             yield return null;
         }
 
-        // Ensure targetAlpha is reached
         canvasGroup.alpha = targetAlpha;
-
-        // Execute code inside callback after fade completes
         onComplete?.Invoke();
     }
 }

@@ -6835,7 +6835,7 @@ Animator:
   m_GameObject: {fileID: 251354797}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7b6091c7f79f7a1478f31818286fb069, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6915,7 +6915,7 @@ Transform:
   m_GameObject: {fileID: 251354797}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6932,6 +6932,7 @@ GameObject:
   - component: {fileID: 405118646}
   - component: {fileID: 405118647}
   - component: {fileID: 405118648}
+  - component: {fileID: 405118649}
   m_Layer: 0
   m_Name: CutsceneManager
   m_TagString: Untagged
@@ -6979,6 +6980,8 @@ PlayableDirector:
     value: {fileID: 1563892928}
   - key: {fileID: -7288153582881520377, guid: c29c80a42960ac54291ed61cf95f74d8, type: 2}
     value: {fileID: 641458750}
+  - key: {fileID: -300367201489817372, guid: c29c80a42960ac54291ed61cf95f74d8, type: 2}
+    value: {fileID: 251354798}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &405118648
@@ -6996,6 +6999,8 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 3d37229e62c2d904bbc371c77359aaca, type: 2}
+    - {fileID: 0}
+    - {fileID: 11400000, guid: f700e1c78757a464b924ec014d73a8fe, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -7011,6 +7016,35 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls: []
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1194037884}
+          m_TargetAssemblyTypeName: TutorialText, Assembly-CSharp
+          m_MethodName: StartAnyKeyPrompt
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &405118649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405118645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7c80a614529164d8f1dfbb2f10e4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimelineControl
+  director: {fileID: 405118647}
 --- !u!1001 &547948644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10593,9 +10627,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TutorialText
   canvasGroup: {fileID: 1194037885}
   textElement: {fileID: 1000000295}
-  message: Press 'E' To Interact
-  fadeDuration: 1
+  readMessage: Press E To Read
+  movementMessage: WASD/Arrows
+  fadeDuration: 1.5
   playerMovementScript: {fileID: 1776178458}
+  playerController: {fileID: 9100000, guid: dbe204671b9624f3a8c1883f5fafe1fd, type: 2}
+  timelineControl: {fileID: 405118649}
 --- !u!225 &1194037885
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -11737,7 +11774,7 @@ Animator:
   m_GameObject: {fileID: 1776178457}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dbe204671b9624f3a8c1883f5fafe1fd, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
