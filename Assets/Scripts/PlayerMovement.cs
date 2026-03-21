@@ -36,6 +36,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
+        // Only continue if PlayerMovement is enabled 
+        if (!this.enabled) 
+        {
+            moveInput = Vector2.zero;
+            return; 
+        }
+
         animator.SetBool("isWalking", true);
 
         if (context.canceled)
