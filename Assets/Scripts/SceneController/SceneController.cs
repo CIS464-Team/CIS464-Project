@@ -32,9 +32,10 @@ public class SceneController : MonoBehaviour
     {
         if (isBusy)
         {
-            Debug.LogWarning("Scene change already in progress.");
+            Debug.LogWarning($"Scene change already in progress. isBusy={isBusy}");
             return null;
         }
+        Debug.Log($"Starting scene transition. isBusy={isBusy}");
         isBusy = true;
         return StartCoroutine(ChangeSceneRoutine(plan));
     }
@@ -62,6 +63,7 @@ public class SceneController : MonoBehaviour
         {
             yield return loadingOverlay.FadeOutBlack();
         }
+        Debug.Log("Scene transition routine completed. Resetting isBusy to false.");
         isBusy = false;
     }
 
