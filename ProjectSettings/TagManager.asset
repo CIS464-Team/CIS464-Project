@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Goal
   - Audio
-  - Menu Canvas
+  - MenuCanvas
   layers:
   - Default
   - TransparentFX
