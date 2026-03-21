@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Goal
+  - Audio
   layers:
   - Default
   - TransparentFX
@@ -59,6 +60,9 @@ TagManager:
     locked: 0
   - name: Decor
     uniqueID: 3438398241
+    locked: 0
+  - name: Effect
+    uniqueID: 3860223335
     locked: 0
   m_RenderingLayers:
   - Default
