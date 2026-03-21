@@ -7,9 +7,12 @@ public class MusicManager : MonoBehaviour
 {
 
     private static MusicManager Instance;
-    private AudioSource audioSource;
+    private AudioSource MusicSource;
+    private AudioSource AmbianceSource;
     public AudioClip bgMusic;
     public AudioClip Ambiance;
+    [SerializeField] private Slider musicSlider;
+    [SerializeField] private Slider ambianceSlider;
    
 
     private void Awake()
@@ -17,7 +20,9 @@ public class MusicManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            audioSource = GetComponent<AudioSource>();
+            AudioSource[] sources = GetComponents<AudioSource>();
+            MusicSource = sources[0];
+            AmbianceSource = sources[1];
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -28,30 +33,42 @@ public class MusicManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (bgMusic != null)
-        {
-            PlayBackgroundMusic(false, bgMusic);
-            PlayBackgroundMusic(false, Ambiance);
-        }
+        if (bgMusic != null) PlayBackgroundMusic(false, bgMusic);
+        if (Ambiance != null) PlayAmbiance(false, Ambiance);
+        
+        musicSlider.onValueChanged.AddListener(val => MusicSource.volume = val); 
+        ambianceSlider.onValueChanged.AddListener(val => AmbianceSource.volume = val); 
         
     }
     public void PlayBackgroundMusic(bool resetSong, AudioClip audioClip = null)
     {
         if (audioClip != null)
         {
-            audioSource.clip = audioClip;
+            MusicSource.clip = audioClip;
         } 
-        if (audioSource.clip != null)
+        if (MusicSource.clip != null)
         {
             if (resetSong)
             {
-                audioSource.Stop();
+                MusicSource.Stop();
             }
-            audioSource.Play();
+            MusicSource.Play();
         }
     }
 
-
-
-
+        public void PlayAmbiance(bool resetSong, AudioClip audioClip = null)
+    {
+        if (audioClip != null)
+        {
+            AmbianceSource.clip = audioClip;
+        } 
+        if (AmbianceSource.clip != null)
+        {
+            if (resetSong)
+            {
+                AmbianceSource.Stop();
+            }
+            AmbianceSource.Play();
+        }
+    }
 }
