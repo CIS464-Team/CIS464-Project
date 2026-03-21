@@ -14,6 +14,7 @@ public class MusicManager : MonoBehaviour
     public AudioClip Ambiance;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider ambianceSlider;
+   
 
     private void Awake()
     {
@@ -21,7 +22,7 @@ public class MusicManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            var sources = GetComponents<AudioSource>();
+            AudioSource[] sources = GetComponents<AudioSource>();
             MusicSource = sources[0];
             AmbianceSource = sources[1];
             DontDestroyOnLoad(gameObject);
@@ -79,6 +80,22 @@ public class MusicManager : MonoBehaviour
     }
 
     public void PlayAmbiance(bool resetSong, AudioClip audioClip = null)
+    {
+        if (audioClip != null)
+        {
+            AmbianceSource.clip = audioClip;
+        } 
+        if (AmbianceSource.clip != null)
+        {
+            if (resetSong)
+            {
+                AmbianceSource.Stop();
+            }
+            AmbianceSource.Play();
+        }
+    }
+
+        public void PlayAmbiance(bool resetSong, AudioClip audioClip = null)
     {
         if (audioClip != null)
         {
