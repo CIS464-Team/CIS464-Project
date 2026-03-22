@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +11,7 @@ public class soundManager : MonoBehaviour
 
     private void Awake()
     {
+        //If sound manager is empty Get audio source and Audio library components
         if (Instance == null)
         {
             Instance = this;
@@ -53,6 +53,7 @@ public class soundManager : MonoBehaviour
         }
     }
 
+        //listen for change in volume set the new volume
     void Start()
     {
         sfxSlider.onValueChanged.AddListener(delegate { OnValueChanged(); });

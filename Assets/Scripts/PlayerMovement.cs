@@ -31,14 +31,14 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = moveInput * moveSpeed;
         animator.SetBool("isWalking", rb.linearVelocity.magnitude > 0);
 
+        //when player is moving play footstep audio and stop if their not
         if (rb.linearVelocity.magnitude > 0 && !playingFootsteps)
         {
             startFootsteps();
         } else if (rb.linearVelocity.magnitude == 0)
         {
             StopFootsteps();
-        }
-        
+        }   
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -64,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void startFootsteps()
+    //while bool is true keep calling Playfoorstep repeatedly
     {
         playingFootsteps = true;
         InvokeRepeating(nameof(PlayFootstep), 0f, footstepSpeed);
@@ -71,10 +72,11 @@ public class PlayerMovement : MonoBehaviour
 
     void StopFootsteps()
     {
+    //once bool is false stop calling it
         playingFootsteps = false;
         CancelInvoke(nameof(PlayFootstep));
     }
-
+    
     void PlayFootstep()
     {
         soundManager.Instance.PlaySFX("footsteps");
