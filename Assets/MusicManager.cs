@@ -7,7 +7,8 @@ public class MusicManager : MonoBehaviour
 {
 
     private static MusicManager Instance;
-    private AudioSource audioSource;
+    private AudioSource musicSource;
+    private AudioSource ambianceSource;
     public AudioClip bgMusic;
     public AudioClip Ambiance;
    
@@ -17,7 +18,9 @@ public class MusicManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            audioSource = GetComponent<AudioSource>();
+            var sources = GetComponents<AudioSource>();
+            musicSource = sources[0];
+            ambianceSource = sources[1];
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -31,23 +34,56 @@ public class MusicManager : MonoBehaviour
         if (bgMusic != null)
         {
             PlayBackgroundMusic(false, bgMusic);
-            PlayBackgroundMusic(false, Ambiance);
+            PlayAmbiance(false, Ambiance);
         }
         
+    }
+
+    void Update()
+    {
+        if (PauseManager.IsGamePaused)
+        {
+            musicSource.Pause();
+            ambianceSource.Pause();
+        }
+        else
+        {
+            if (!musicSource.isPlaying)
+            {
+                musicSource.UnPause();
+                ambianceSource.UnPause();
+            }
+        }
     }
     public void PlayBackgroundMusic(bool resetSong, AudioClip audioClip = null)
     {
         if (audioClip != null)
         {
-            audioSource.clip = audioClip;
+            musicSource.clip = audioClip;
         } 
-        if (audioSource.clip != null)
+        if (musicSource.clip != null)
         {
             if (resetSong)
             {
-                audioSource.Stop();
+                musicSource.Stop();
             }
-            audioSource.Play();
+            musicSource.Play();
+        }
+    }
+
+    public void PlayAmbiance(bool resetSong, AudioClip audioClip = null)
+    {
+        if (audioClip != null)
+        {
+            ambianceSource.clip = audioClip;
+        } 
+        if (ambianceSource.clip != null)
+        {
+            if (resetSong)
+            {
+                ambianceSource.Stop();
+            }
+            ambianceSource.Play();
         }
     }
 

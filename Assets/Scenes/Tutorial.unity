@@ -7860,7 +7860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 643189374}
   m_Layer: 0
-  m_Name: '--- Managers --- '
+  m_Name: -- MANAGERS --
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8075,7 +8075,7 @@ GameObject:
   m_Component:
   - component: {fileID: 823444640}
   m_Layer: 0
-  m_Name: --- Camera ---
+  m_Name: -- CAMERA --
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11510,21 +11510,17 @@ MonoBehaviour:
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 7d33af67-472b-40c1-b523-8600cb48983a
-    m_ActionName: 'Player/OpenDebugConsole[/Keyboard/g]'
+      m_Calls: []
+    m_ActionId: d4e1fbc7-6be3-4e32-a3ed-b96640686712
+    m_ActionName: 'Player/OpenDebugConsole[/Keyboard/shift,/Keyboard/g]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dd76a363-9064-489c-9043-c94aa6466f9c
+    m_ActionName: 'Player/Return[/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c6d4ab64-b755-4522-b033-49af6a51d5b4
+    m_ActionName: 'Player/OpenMenu[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

@@ -26,6 +26,10 @@ public class soundManager : MonoBehaviour
 
     public void PlaySFX(string soundName)
     {
+        if(PauseManager.IsGamePaused)
+        {
+            return;
+        }
         AudioClip audioClip = audioLibrary.GetRandomClip(soundName);
         if (audioClip != null)
         {
