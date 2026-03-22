@@ -7,20 +7,23 @@ public class MusicManager : MonoBehaviour
 {
 
     private static MusicManager Instance;
-    private AudioSource musicSource;
-    private AudioSource ambianceSource;
+    // We manage Music and Ambiance separately so we can Pause each independently and change volume independently
+    private AudioSource MusicSource;
+    private AudioSource AmbianceSource;
     public AudioClip bgMusic;
     public AudioClip Ambiance;
-   
+    [SerializeField] private Slider musicSlider;
+    [SerializeField] private Slider ambianceSlider;
 
     private void Awake()
     {
+        // If the MusicManager is empty, get 2 AudioSource components and link to the right AudioSource
         if (Instance == null)
         {
             Instance = this;
             var sources = GetComponents<AudioSource>();
-            musicSource = sources[0];
-            ambianceSource = sources[1];
+            MusicSource = sources[0];
+            AmbianceSource = sources[1];
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -31,43 +34,47 @@ public class MusicManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (bgMusic != null)
-        {
-            PlayBackgroundMusic(false, bgMusic);
-            PlayAmbiance(false, Ambiance);
-        }
+        // If audio is already playing, do not restart the song.
+        if (bgMusic != null) PlayBackgroundMusic(false, bgMusic);
+        if (Ambiance != null) PlayAmbiance(false, Ambiance);
+        // Listen for a change in value and set the volume accordingly.
+        musicSlider.onValueChanged.AddListener(val => MusicSource.volume = val); 
+        ambianceSlider.onValueChanged.AddListener(val => AmbianceSource.volume = val); 
         
     }
 
     void Update()
     {
+        // Every frame we check for whether or not the game is paused and pause music if needed.
         if (PauseManager.IsGamePaused)
         {
-            musicSource.Pause();
-            ambianceSource.Pause();
+            MusicSource.Pause();
+            AmbianceSource.Pause();
         }
         else
         {
-            if (!musicSource.isPlaying)
+            if (!MusicSource.isPlaying)
             {
-                musicSource.UnPause();
-                ambianceSource.UnPause();
+                MusicSource.UnPause();
+                AmbianceSource.UnPause();
             }
         }
     }
+
+    // Set the desired audio clip and play it
     public void PlayBackgroundMusic(bool resetSong, AudioClip audioClip = null)
     {
         if (audioClip != null)
         {
-            musicSource.clip = audioClip;
+            MusicSource.clip = audioClip;
         } 
-        if (musicSource.clip != null)
+        if (MusicSource.clip != null)
         {
             if (resetSong)
             {
-                musicSource.Stop();
+                MusicSource.Stop();
             }
-            musicSource.Play();
+            MusicSource.Play();
         }
     }
 
@@ -75,15 +82,15 @@ public class MusicManager : MonoBehaviour
     {
         if (audioClip != null)
         {
-            ambianceSource.clip = audioClip;
+            AmbianceSource.clip = audioClip;
         } 
-        if (ambianceSource.clip != null)
+        if (AmbianceSource.clip != null)
         {
             if (resetSong)
             {
-                ambianceSource.Stop();
+                AmbianceSource.Stop();
             }
-            ambianceSource.Play();
+            AmbianceSource.Play();
         }
     }
 

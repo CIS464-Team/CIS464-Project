@@ -5631,6 +5631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7483d512955d8450bb82c05ba3c8ae6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  sfxSlider: {fileID: 0}
 --- !u!114 &698448547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6138,7 +6139,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 4
+  m_ChildAlignment: 3
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 400, y: 100}
@@ -6194,6 +6195,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   bgMusic: {fileID: 8300000, guid: cc261a2d2f0e74dfcbd82d2d1a2a8d16, type: 3}
   Ambiance: {fileID: 8300000, guid: 6ca0c37662fde463db6107b68b295ed7, type: 3}
+  musicSlider: {fileID: 0}
+  ambianceSlider: {fileID: 0}
 --- !u!82 &1054985861
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6834,6 +6837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   menuCanvas: {fileID: 1942582608}
+  isMainMenuActive: 0
 --- !u!114 &1778344850
 MonoBehaviour:
   m_ObjectHideFlags: 0
