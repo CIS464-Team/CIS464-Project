@@ -22,7 +22,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(PauseManager.IsGamePaused)
+        {
+            rb.linearVelocity = Vector2.zero; // stop walking if we are paused\
+            animator.SetBool("isWalking", false);
+            return;
+        }
         rb.linearVelocity = moveInput * moveSpeed;
+        animator.SetBool("isWalking", rb.linearVelocity.magnitude > 0);
 
         if (rb.linearVelocity.magnitude > 0 && !playingFootsteps)
         {
@@ -42,8 +49,6 @@ public class PlayerMovement : MonoBehaviour
             moveInput = Vector2.zero;
             return; 
         }
-
-        animator.SetBool("isWalking", true);
 
         if (context.canceled)
         {

@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class AudioLibrary : MonoBehaviour
@@ -9,11 +6,13 @@ public class AudioLibrary : MonoBehaviour
     [SerializeField] private SFXgroup[] SFXgroups;
     private Dictionary<string, List<AudioClip>> soundDictionary;
 
+    // Create dictionary to store all clips in one group
     private void Awake()
     {
         InitializeDictionary();
     }
 
+    // Loop through each sound group, set the value to an array of audio clips
     private void InitializeDictionary()
     {
         soundDictionary = new Dictionary<string, List<AudioClip>>();
@@ -23,6 +22,7 @@ public class AudioLibrary : MonoBehaviour
         }
     }
 
+    // Return a random clip from the list of clips
     public AudioClip GetRandomClip(string name)
     {
         if (soundDictionary.ContainsKey(name))
@@ -36,9 +36,8 @@ public class AudioLibrary : MonoBehaviour
 
         return null;
     }
-
 }
-
+// So that it shows up on the Unity inspector
 [System.Serializable]
         public struct SFXgroup
     {

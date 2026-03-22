@@ -5,9 +5,17 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     private GameObject menuCanvas;
+    private InGameMenuManager menuManager;
+
+    void Start()
+    {
+        menuManager = FindFirstObjectByType<InGameMenuManager>();
+        menuManager.isMainMenuActive = true;
+    }
 
     public void StartSession()
     {
+        
         SceneController.Instance
             .NewTransition()
             .Load(SceneDatabase.Slots.Session, SceneDatabase.Scenes.Session)
@@ -16,19 +24,11 @@ public class MainMenuManager : MonoBehaviour
             .WithOverlay()
             .WithClearUnusedAssets()
             .Perform();
+        menuManager.isMainMenuActive = false;
     }
-    public void OpenSettings()
+    public void OpenSettingsButton()
     {
-        Debug.Log("Trying to open settings...");
-        menuCanvas.SetActive(true);
-        // pull the first item with a menu canvas tag as the game object
-        menuCanvas = GameObject.Find("Menu");
-
-        // Debug.Log(menuCanvas);
-
-        // activate the menu canvas
-        // menuCanvas.SetActive(true);
-
+        menuManager.OpenSettings();
     }
     public void ExitGame()
     {

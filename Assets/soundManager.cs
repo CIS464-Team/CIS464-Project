@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class soundManager : MonoBehaviour
     private static AudioSource audioSource;
     private static AudioLibrary audioLibrary;
     public static soundManager Instance;
+    [SerializeField] private Slider sfxSlider;
 
     private void Awake()
     {
@@ -24,8 +26,27 @@ public class soundManager : MonoBehaviour
         }
     }  
 
+    void Start()
+    {
+        sfxSlider.onValueChanged.AddListener(delegate { OnValueChanged(); });
+    }
+
+    public static void SetVolume(float volume)
+    {
+        audioSource.volume = volume;
+    }
+
+    public void OnValueChanged()
+    {
+        SetVolume(sfxSlider.value);
+    }
+
     public void PlaySFX(string soundName)
     {
+        if(PauseManager.IsGamePaused)
+        {
+            return;
+        }
         AudioClip audioClip = audioLibrary.GetRandomClip(soundName);
         if (audioClip != null)
         {
