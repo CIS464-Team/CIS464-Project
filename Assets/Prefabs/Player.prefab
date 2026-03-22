@@ -329,6 +329,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: dd76a363-9064-489c-9043-c94aa6466f9c
     m_ActionName: 'Player/Return[/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c6d4ab64-b755-4522-b033-49af6a51d5b4
+    m_ActionName: 'Player/OpenMenu[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -404,7 +408,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.22013628}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -414,7 +418,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.825, y: 1}
+  m_Size: {x: 0.825, y: 0.55972743}
   m_EdgeRadius: 0
 --- !u!1 &7253897977032530417
 GameObject:
