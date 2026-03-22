@@ -7911,6 +7911,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 405118646}
+  - {fileID: 1734571181}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &732515547
@@ -8018,7 +8019,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &769984689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9197,6 +9198,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: -11, y: 1, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 29
+      m_TileSpriteIndex: 29
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 10, y: 1, z: 0}
     second:
       serializedVersion: 2
@@ -10097,6 +10108,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 256a14a8b884243beb30e895f31dfc90, type: 2}
   - m_RefCount: 7
     m_Data: {fileID: 11400000, guid: af32f974f445f4c94bdbdac784c93f36, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 4222ac8d445b56248a4d75566a1feb9f, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
     m_Data: {fileID: 755327131, guid: ce1d2d2a024e16f49b2a817fff5dc602, type: 3}
@@ -10156,8 +10169,10 @@ Tilemap:
     m_Data: {fileID: -1164454998, guid: a533d1c293d2449ee950c85ce89a4be8, type: 3}
   - m_RefCount: 7
     m_Data: {fileID: -6869613983314767778, guid: a533d1c293d2449ee950c85ce89a4be8, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 1149856258, guid: cd27b3fa3d79f9b4a842d7f638fd431f, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 181
+  - m_RefCount: 182
     m_Data:
       e00: 1
       e01: 0
@@ -10176,7 +10191,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 181
+  - m_RefCount: 182
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -11321,7 +11336,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -434743961
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_RenderMode: 0
