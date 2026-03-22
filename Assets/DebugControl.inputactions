@@ -1,0 +1,77 @@
+{
+    "version": 1,
+    "name": "DebugControl",
+    "maps": [
+        {
+            "name": "Opening",
+            "id": "fa16e738-aabf-4960-a72b-ea26a814ff25",
+            "actions": [
+                {
+                    "name": "OpenDebugConsole",
+                    "type": "Button",
+                    "id": "6a35e867-9088-4b07-84b8-f412bb8a4dce",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Return",
+                    "type": "Button",
+                    "id": "a8fef31b-b32d-415c-9359-93e067991e65",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "One Modifier",
+                    "id": "3c903cf2-351e-4910-a6df-828d1c06ad5b",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenDebugConsole",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "99bc2d81-cfe5-4695-9a2e-02f2100bacec",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenDebugConsole",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "ea90f266-f575-4979-83fb-572941b81232",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenDebugConsole",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "48bbc3ff-b168-4424-838e-2086a5efa4b4",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Return",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

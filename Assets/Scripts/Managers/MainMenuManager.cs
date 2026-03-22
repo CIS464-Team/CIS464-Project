@@ -20,21 +20,15 @@ public class MainMenuManager : MonoBehaviour
     public void OpenSettings()
     {
         Debug.Log("Trying to open settings...");
-
+        menuCanvas.SetActive(true);
         // pull the first item with a menu canvas tag as the game object
-        menuCanvas = GameObject.FindGameObjectWithTag("MenuCanvas");
+        menuCanvas = GameObject.Find("Menu");
 
-        Debug.Log(menuCanvas);
+        // Debug.Log(menuCanvas);
 
         // activate the menu canvas
-        menuCanvas.SetActive(true);
+        // menuCanvas.SetActive(true);
 
-        // old stuff
-        // SceneController.Instance
-        //     .NewTransition()
-        //     .Load(SceneDatabase.Slots.SessionContent, SceneDatabase.Scenes.SettingsWindow, setActive:true)
-        //     .WithOverlay()
-        //     .Perform();
     }
     public void ExitGame()
     {

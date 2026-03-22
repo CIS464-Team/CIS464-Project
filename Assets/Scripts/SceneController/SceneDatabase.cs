@@ -13,6 +13,7 @@ public class SceneDatabase : MonoBehaviour
         public const string MainMenu = "MainMenu";
         public const string Session = "Session";
         public const string Tutorial = "Tutorial";
+        public const string TutorialContinued = "TutorialContinued";
         public const string Central = "Central";
         public const string Area1 = "Area1";
         public const string Area2 = "Area2";
