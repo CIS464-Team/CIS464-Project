@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "CIS464-Project.slnx"
+    "dotnet.defaultSolution": "CIS464-Project-gatekept.slnx"
 }
