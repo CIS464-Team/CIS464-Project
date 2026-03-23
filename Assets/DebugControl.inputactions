@@ -3,7 +3,7 @@
     "name": "DebugControl",
     "maps": [
         {
-            "name": "Opening",
+            "name": "Player",
             "id": "fa16e738-aabf-4960-a72b-ea26a814ff25",
             "actions": [
                 {

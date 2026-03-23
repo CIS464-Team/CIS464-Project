@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+
     // declare variables
     [SerializeField] private float moveSpeed = 2f;
     private Rigidbody2D rb;
