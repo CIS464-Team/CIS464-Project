@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class LanternPickup : MonoBehaviour
 {
+    // When the player collides with the lantern, "pick it up"
+    // by making it a child of the player and setting its position to the player's position
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player"))
@@ -15,11 +17,12 @@ public class LanternPickup : MonoBehaviour
         Debug.Log("Lantern picked up!");
         transform.SetParent(player.transform);
         transform.localPosition = Vector3.zero;
-        // Set sorting layer to decor so it appears on top of the player
+        // Set sorting layer to player, but above the player so it appears on top of the player
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         if (sr != null)
         {
-            sr.sortingLayerName = "Decor";
+            sr.sortingLayerName = "Player";
+            sr.sortingOrder = 1; 
         }
     }
 }

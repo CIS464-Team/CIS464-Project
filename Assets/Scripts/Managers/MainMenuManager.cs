@@ -1,9 +1,21 @@
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+    private GameObject menuCanvas;
+    private InGameMenuManager menuManager;
+
+    void Start()
+    {
+        menuManager = FindFirstObjectByType<InGameMenuManager>();
+        menuManager.isMainMenuActive = true;
+    }
+
     public void StartSession()
     {
+        
         SceneController.Instance
             .NewTransition()
             .Load(SceneDatabase.Slots.Session, SceneDatabase.Scenes.Session)
@@ -12,14 +24,11 @@ public class MainMenuManager : MonoBehaviour
             .WithOverlay()
             .WithClearUnusedAssets()
             .Perform();
+        menuManager.isMainMenuActive = false;
     }
-    public void OpenSettings()
+    public void OpenSettingsButton()
     {
-        SceneController.Instance
-            .NewTransition()
-            .Load(SceneDatabase.Slots.SessionContent, SceneDatabase.Scenes.SettingsWindow, setActive:true)
-            .WithOverlay()
-            .Perform();
+        menuManager.OpenSettings();
     }
     public void ExitGame()
     {
