@@ -16215,7 +16215,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 1194037885}
   textElement: {fileID: 1000000295}
   readMessage: Press E To Read
-  movementMessage: WASD/Arrows
+  movementMessage: WASD/Arrows To Move
   fadeDuration: 1.5
   playerMovementScript: {fileID: 1776178458}
   playerController: {fileID: 9100000, guid: dbe204671b9624f3a8c1883f5fafe1fd, type: 2}
