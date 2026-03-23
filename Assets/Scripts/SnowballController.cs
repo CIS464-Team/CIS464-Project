@@ -24,6 +24,9 @@ public class SnowballController : MonoBehaviour
             // remove the goal and the snowball
             collision.gameObject.SetActive(false);
             gameObject.SetActive(false);
+
+            //play goal met sound
+            soundManager.Instance.PlaySFX("goal");
         }    
     }
 }

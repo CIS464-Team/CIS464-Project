@@ -25,30 +25,19 @@ public class soundManager : MonoBehaviour
         }
     }  
 
-    void Start()
-    {
-        sfxSlider.onValueChanged.AddListener(delegate { OnValueChanged(); });
-    }
-
-    public static void SetVolume(float volume)
-    {
-        audioSource.volume = volume;
-    }
-
-    public void OnValueChanged()
-    {
-        SetVolume(sfxSlider.value);
-    }
-
+    
     public void PlaySFX(string soundName)
     {
+        Debug.Log("PlaySFX called: " + soundName);
         if(PauseManager.IsGamePaused)
         {
             return;
         }
         AudioClip audioClip = audioLibrary.GetRandomClip(soundName);
+        Debug.Log("Clip found: " + audioClip);
         if (audioClip != null)
         {
+            Debug.Log("Playing: " + audioClip);
             audioSource.PlayOneShot(audioClip);
         }
     }
