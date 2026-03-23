@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class MusicManager : MonoBehaviour
@@ -10,18 +12,16 @@ public class MusicManager : MonoBehaviour
     private AudioSource AmbianceSource;
     public AudioClip bgMusic;
     public AudioClip Ambiance;
-    // 2 independent sliders to control Music and Ambiance seperately
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider ambianceSlider;
-   
 
     private void Awake()
     {
-        //If MusicManager is empty get 2 Audiosource Components for Music and ambiance
+        // If the MusicManager is empty, get 2 AudioSource components and link to the right AudioSource
         if (Instance == null)
         {
             Instance = this;
-            AudioSource[] sources = GetComponents<AudioSource>();
+            var sources = GetComponents<AudioSource>();
             MusicSource = sources[0];
             AmbianceSource = sources[1];
             DontDestroyOnLoad(gameObject);
@@ -34,11 +34,10 @@ public class MusicManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //if audio is already playing do not restart the song
+        // If audio is already playing, do not restart the song.
         if (bgMusic != null) PlayBackgroundMusic(false, bgMusic);
         if (Ambiance != null) PlayAmbiance(false, Ambiance);
-
-        //Add listeners to check for a change of value and set the volume to that value
+        // Listen for a change in value and set the volume accordingly.
         musicSlider.onValueChanged.AddListener(val => MusicSource.volume = val); 
         ambianceSlider.onValueChanged.AddListener(val => AmbianceSource.volume = val); 
         
@@ -65,12 +64,11 @@ public class MusicManager : MonoBehaviour
     // Set the desired audio clip and play it
     public void PlayBackgroundMusic(bool resetSong, AudioClip audioClip = null)
     {
-        //set music to selected audio clip if it is not null and play it
         if (audioClip != null)
         {
             MusicSource.clip = audioClip;
         } 
-        if (MusicSource.clip != null) 
+        if (MusicSource.clip != null)
         {
             if (resetSong)
             {
@@ -80,8 +78,7 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-        //set ambiance to slecrted audio clip if it is not null and play it
-        public void PlayAmbiance(bool resetSong, AudioClip audioClip = null)
+    public void PlayAmbiance(bool resetSong, AudioClip audioClip = null)
     {
         if (audioClip != null)
         {
