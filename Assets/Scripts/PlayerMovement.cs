@@ -82,4 +82,23 @@ public class PlayerMovement : MonoBehaviour
         soundManager.Instance.PlaySFX("footsteps");
     }
 
+    // Handle opening the debug console since unity hates multiple player inputs both sending msgs
+    public void OnOpenDebugConsole(InputAction.CallbackContext context)
+    {
+        if (DebugController.Instance != null)
+            DebugController.Instance.ToggleConsole();
+    }
+
+    public void OnReturn(InputAction.CallbackContext context)
+    {
+        if (DebugController.Instance != null)
+            DebugController.Instance.HandleReturn();
+    }
+
+    // Handle opening the in-game menu since unity hates multiple player inputs both sending msgs
+    public void OnOpenMenu(InputAction.CallbackContext context)
+    {
+        if (InGameMenuManager.Instance != null)
+            InGameMenuManager.Instance.OpenSettings();
+    }
 }

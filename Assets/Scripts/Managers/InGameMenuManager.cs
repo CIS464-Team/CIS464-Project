@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class InGameMenuManager : MonoBehaviour
 {
+    public static InGameMenuManager Instance;
     public GameObject menuCanvas;
     private bool menuOpen = false;
     public bool isMainMenuActive;
@@ -13,10 +14,11 @@ public class InGameMenuManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Instance = this;
         menuCanvas.SetActive(false);
     }
 
-    public void OnOpenMenu(InputValue value)
+    public void OpenSettings(InputValue value)
     {
         if(isMainMenuActive)
         {
@@ -53,19 +55,6 @@ public class InGameMenuManager : MonoBehaviour
         }
         print("X BUTTON hit. InGameMenu is now " + menuOpen);
         
-    }
-
-    // Handle opening the debug console since unity hates 2 different player inputs both sending msgs
-    public void OnOpenDebugConsole(InputValue value)
-    {
-        if (DebugController.Instance != null)
-            DebugController.Instance.ToggleConsole();
-    }
-
-    public void OnReturn(InputValue value)
-    {
-        if (DebugController.Instance != null)
-            DebugController.Instance.HandleReturn();
     }
 
 }
