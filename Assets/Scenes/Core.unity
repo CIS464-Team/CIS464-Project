@@ -1637,6 +1637,12 @@ MonoBehaviour:
     - {fileID: 8300000, guid: ad9228117302a477cacbc8a601e2f76e, type: 3}
     - {fileID: 8300000, guid: ef7c71ffb080c4541aa95f092fc9a01b, type: 3}
     - {fileID: 8300000, guid: 877c1922f311d42e7ba20ad76bb71e3c, type: 3}
+  - name: gateopen
+    audioClips:
+    - {fileID: 8300000, guid: f18a442b59ea94a5b988354d5c33aea4, type: 3}
+  - name: goal
+    audioClips:
+    - {fileID: 8300000, guid: 2a27f9dd5af05491ab035fcea51961a1, type: 3}
 --- !u!82 &698448548
 AudioSource:
   m_ObjectHideFlags: 0
