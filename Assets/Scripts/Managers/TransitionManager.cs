@@ -10,6 +10,7 @@ public class TransitionManager : MonoBehaviour
             SceneController.Instance
                 .NewTransition()
                 .Load(SceneDatabase.Slots.SessionContent, targetSceneName, setActive:true)
+                .WithOverlay()
                 .Perform();
         }
     }
