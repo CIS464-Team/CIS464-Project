@@ -24,12 +24,15 @@ public class TutorialKeyController : MonoBehaviour
             // remove the gate and the key
             GameObject[] gateParts = GameObject.FindGameObjectsWithTag("TutorialGate");
 
+            // play the gate opening sound
+            soundManager.Instance.PlaySFX("gateopen");
+            Debug.Log("gate opened");
+
             // if we have multiple gates, remove them all
             foreach (GameObject gate in gateParts)
             {
                 gate.SetActive(false);
             }
-
             // remove the key itself
             gameObject.SetActive(false);
         }    
