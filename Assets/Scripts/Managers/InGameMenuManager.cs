@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class InGameMenuManager : MonoBehaviour
 {
+    public static InGameMenuManager Instance;
     public GameObject menuCanvas;
     private bool menuOpen = false;
     public bool isMainMenuActive;
@@ -13,10 +14,11 @@ public class InGameMenuManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Instance = this;
         menuCanvas.SetActive(false);
     }
 
-    public void OnOpenMenu(InputValue value)
+    public void OpenSettings(InputValue value)
     {
         if(isMainMenuActive)
         {

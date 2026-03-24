@@ -10,7 +10,16 @@ public class TransitionManager : MonoBehaviour
             SceneController.Instance
                 .NewTransition()
                 .Load(SceneDatabase.Slots.SessionContent, targetSceneName, setActive:true)
+                .WithOverlay()
                 .Perform();
         }
+    }
+
+    public void CheatTP(string cheatSceneName) {
+        print("GOD MODE: Teleporting to " + cheatSceneName);
+        SceneController.Instance
+            .NewTransition()
+            .Load(SceneDatabase.Slots.SessionContent, cheatSceneName, setActive:true)
+            .Perform();
     }
 }
