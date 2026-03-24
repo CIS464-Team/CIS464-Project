@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class DebugController : MonoBehaviour
 {
+    public static DebugController Instance;
     bool showConsole;
     string input;
 
@@ -26,6 +27,7 @@ public class DebugController : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         TP_A1 = new DebugCommand("TP_A1", "Teleport directly to Area 1", "TP_A1", () =>
         {
            transitionManager.CheatTP("Area1");
@@ -70,13 +72,14 @@ public class DebugController : MonoBehaviour
     
 
     // Check for when the magical keyboard combo is pressed and open/close console
-    public void OnOpenDebugConsole(InputValue value)
+    public void ToggleConsole()
     {
+        Debug.Log("OnOpenDebugConsole called");
         showConsole = !showConsole;
         print("Debug console is now " + showConsole);
     }
 
-    public void OnReturn(InputValue value)
+    public void HandleReturn()
     {
         if (showConsole)
         {

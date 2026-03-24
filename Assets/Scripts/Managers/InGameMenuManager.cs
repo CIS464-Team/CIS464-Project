@@ -55,4 +55,17 @@ public class InGameMenuManager : MonoBehaviour
         
     }
 
+    // Handle opening the debug console since unity hates 2 different player inputs both sending msgs
+    public void OnOpenDebugConsole(InputValue value)
+    {
+        if (DebugController.Instance != null)
+            DebugController.Instance.ToggleConsole();
+    }
+
+    public void OnReturn(InputValue value)
+    {
+        if (DebugController.Instance != null)
+            DebugController.Instance.HandleReturn();
+    }
+
 }
