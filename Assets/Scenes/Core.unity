@@ -992,6 +992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TransitionManager
   targetSceneName: 
+  autoWalkDuration: 0.4
 --- !u!1 &319379969
 GameObject:
   m_ObjectHideFlags: 0

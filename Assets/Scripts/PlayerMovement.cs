@@ -102,4 +102,20 @@ public class PlayerMovement : MonoBehaviour
         if (InGameMenuManager.Instance != null)
             InGameMenuManager.Instance.OpenSettings();
     }
+
+    private bool inputLocked = false;
+    public Vector2 MoveInput => inputLocked ? Vector2.zero : moveInput;
+
+    public void SetInputLocked(bool locked)
+    {
+        inputLocked = locked;
+    }
+
+    public void ApplyMovement(Vector2 direction)
+    {
+        // Drive your rigidbody or transform directly
+        rb.MovePosition(rb.position + direction * moveSpeed * Time.deltaTime);
+        // OR: rb.velocity = direction * moveSpeed;
+    }   
+
 }
