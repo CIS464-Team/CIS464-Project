@@ -95,19 +95,4 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-        public void PlayAmbiance(bool resetSong, AudioClip audioClip = null)
-    {
-        if (audioClip != null)
-        {
-            AmbianceSource.clip = audioClip;
-        } 
-        if (AmbianceSource.clip != null)
-        {
-            if (resetSong)
-            {
-                AmbianceSource.Stop();
-            }
-            AmbianceSource.Play();
-        }
-    }
 }

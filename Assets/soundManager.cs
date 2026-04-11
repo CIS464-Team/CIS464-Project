@@ -58,33 +58,5 @@ public class soundManager : MonoBehaviour
         SetVolume(sfxSlider.value);
     }
 
-    public void PlaySFX(string soundName)
-    {
-        if(PauseManager.IsGamePaused)
-        {
-            return;
-        }
-        AudioClip audioClip = audioLibrary.GetRandomClip(soundName);
-        if (audioClip != null)
-        {
-            audioSource.PlayOneShot(audioClip);
-        }
-    }
-
-    void Start()
-    {
-        sfxSlider.onValueChanged.AddListener(delegate { OnValueChanged(); });
-    }
-
-    public static void SetVolume(float volume)
-    {
-        audioSource.volume = volume;
-    }
-
-    public void OnValueChanged()
-    {
-        SetVolume(sfxSlider.value);
-    }
-
 
 }
