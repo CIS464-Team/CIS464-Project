@@ -7,6 +7,7 @@ public class DebugController : MonoBehaviour
 {
     public static DebugController Instance;
     bool showConsole;
+    bool showHelp;
     string input;
 
     // Here's the list of commands we have:
@@ -21,6 +22,7 @@ public class DebugController : MonoBehaviour
     public static DebugCommand Auto_Tut;
        // public static DebugCommand MORE AUTO PUZZLES!!
     public static DebugCommand<int> set_player_speed;
+    public static DebugCommand help;
 
     public List<object> commandList;
     public TransitionManager transitionManager;
@@ -57,6 +59,11 @@ public class DebugController : MonoBehaviour
            transitionManager.CheatTP("TutorialContinued");
         });
 
+        help = new DebugCommand("help", "Show list of all commands", "help", ()=>
+        {
+           showHelp=true; 
+        });
+
         commandList = new List<object>
         {
             TP_A1, 
@@ -65,6 +72,7 @@ public class DebugController : MonoBehaviour
             TP_A4, 
             TP_Cent, 
             TP_TutC, 
+            help,
             //Auto_Tut, 
             //set_player_speed
         };
@@ -85,15 +93,37 @@ public class DebugController : MonoBehaviour
         {
             HandleInput();
             input = "";
-            showConsole = false;
             
         }
     }
 
+    Vector2 scroll;
     private void OnGUI()
     {
         if(!showConsole) { return; }
         float y = 2f;
+
+        if(showHelp)
+        {
+            GUI.Box(new Rect(0, y, Screen.width, 250), "");
+
+            GUIStyle helpStyle = new GUIStyle(GUI.skin.label);
+            helpStyle.fontSize = 40; // increase this value to make text bigger
+
+            Rect viewport = new Rect(0, 0, Screen.width - 30, 60 * commandList.Count);
+            scroll = GUI.BeginScrollView(new Rect(0, y + 5f, Screen.width, 240), scroll, viewport);
+            for (int i = 0; i < commandList.Count; i++)
+            {
+                DebugCommandBase command = commandList[i] as DebugCommandBase;
+                string label = $"{command.commandFormat} - {command.commandDescription}";
+                Rect labelRect = new Rect(5, 40 * i, viewport.width - 100, 50);
+                GUI.Label(labelRect, label, helpStyle);
+            }
+            GUI.EndScrollView();
+            y += 250;
+    
+        }
+
         GUIStyle consoleStyle = new GUIStyle(GUI.skin.textField);
         consoleStyle.fontSize = 40; 
         GUI.SetNextControlName("console");
