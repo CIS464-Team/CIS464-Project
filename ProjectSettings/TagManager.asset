@@ -13,6 +13,7 @@ TagManager:
   - LaserIgnore
   - ICE-E
   - KeyUI
+  - Statue
   layers:
   - Default
   - TransparentFX
