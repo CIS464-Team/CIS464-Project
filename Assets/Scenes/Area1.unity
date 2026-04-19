@@ -373,7 +373,15 @@ PolygonCollider2D:
       - {x: -16.157915, y: -38.712048}
       - {x: -7.170005, y: -38.843536}
       - {x: 11.744582, y: -38.84544}
-      - {x: 11.991324, y: 9.114609}
+      - {x: 11.691909, y: -15.881192}
+      - {x: 20.721197, y: -15.857347}
+      - {x: 20.72325, y: -17.875381}
+      - {x: 40.72863, y: -17.868244}
+      - {x: 40.72735, y: -2.8711362}
+      - {x: 20.733845, y: -2.872726}
+      - {x: 20.728016, y: -6.875023}
+      - {x: 11.733138, y: -6.8654933}
+      - {x: 11.715772, y: 9.131309}
       - {x: 0.7342391, y: 9.135952}
       - {x: 0.72603536, y: 10.137147}
       - {x: -3.276987, y: 10.141301}
@@ -7598,7 +7606,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 13
-      m_TileSpriteIndex: 2
+      m_TileSpriteIndex: 17
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -10247,8 +10255,8 @@ Tilemap:
     m_Data: {fileID: 2012603962, guid: c18937d3398eb884d89096b374dcde28, type: 3}
   - m_RefCount: 48
     m_Data: {fileID: 519520909, guid: c18937d3398eb884d89096b374dcde28, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1015291606, guid: c18937d3398eb884d89096b374dcde28, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 11
     m_Data: {fileID: -380613709, guid: c18937d3398eb884d89096b374dcde28, type: 3}
   - m_RefCount: 49
@@ -10277,8 +10285,8 @@ Tilemap:
     m_Data: {fileID: -963204644, guid: c18937d3398eb884d89096b374dcde28, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 314954246, guid: c18937d3398eb884d89096b374dcde28, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1015291606, guid: c18937d3398eb884d89096b374dcde28, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 284
     m_Data:
@@ -13490,7 +13498,7 @@ Transform:
   m_GameObject: {fileID: 673692030}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.31835628, y: -0.93229115, z: -10}
+  m_LocalPosition: {x: 2.5947878, y: -0.3651724, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52708,8 +52716,8 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -856569055
-  m_SortingLayer: 6
+  m_SortingLayerID: 530464325
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
