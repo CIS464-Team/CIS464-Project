@@ -1644,6 +1644,21 @@ MonoBehaviour:
   - name: goal
     audioClips:
     - {fileID: 8300000, guid: 2a27f9dd5af05491ab035fcea51961a1, type: 3}
+  - name: Area2Gate
+    audioClips:
+    - {fileID: 8300000, guid: 6ec6428134f27df43842f14c392c0900, type: 3}
+  - name: CorrectTile
+    audioClips:
+    - {fileID: 8300000, guid: 2b344f5fdc03d2147b5d46c1b750cddb, type: 3}
+  - name: KeyChime
+    audioClips:
+    - {fileID: 8300000, guid: 94f18c1c1b059ee4f8ab1aa21c096f5b, type: 3}
+  - name: Area2MapRustle
+    audioClips:
+    - {fileID: 8300000, guid: 2aa13173f5a8a9a4386e45acb50176bf, type: 3}
+  - name: IncorrectTile
+    audioClips:
+    - {fileID: 8300000, guid: 8b087516720da7d478c88a2937167ab9, type: 3}
 --- !u!82 &698448548
 AudioSource:
   m_ObjectHideFlags: 0
