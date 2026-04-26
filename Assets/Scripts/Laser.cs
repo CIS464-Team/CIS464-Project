@@ -30,6 +30,13 @@ public class Laser : MonoBehaviour {
                         break;
                     }
                 }
+                if(hit.collider.tag == "LaserIgnore") {
+                    shouldIgnore = true;
+                }
+                if(hit.collider.tag == "MainCamera")
+                {
+                    shouldIgnore = true;
+                }
                 if (!shouldIgnore) {
                     validHit = hit;
                     break;
@@ -39,9 +46,13 @@ public class Laser : MonoBehaviour {
             if (validHit.HasValue) {
                 var hit = validHit.Value;
                 points.Add(hit.point);
-                if (hit.collider.tag == "Reflective") {
-                    currentPos = hit.point;
+                if(hit.collider.tag == "Goal")
+                {
+                    hit.collider.GetComponent<LaserGoal>()?.Activate();
+                    break;  
+                } else if (hit.collider.tag == "Reflective") {
                     currentDir = Vector2.Reflect(currentDir, hit.normal);
+                    currentPos = hit.point + currentDir * 0.01f;
                 } else {
                     break;
                 }
