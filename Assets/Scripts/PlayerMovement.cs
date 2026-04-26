@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 
     // declare variables
     [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private float iceDecaySpeed = 1f;
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private Animator animator;
@@ -31,7 +32,13 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isWalking", false);
             return;
         }
-        rb.linearVelocity = moveInput * moveSpeed;
+
+        // don't do this when sliding
+        if (!isSliding)
+        {
+            rb.linearVelocity = moveInput * moveSpeed;
+        }
+        
         animator.SetBool("isWalking", rb.linearVelocity.magnitude > 0);
 
         //when player is moving play footstep audio and stop if their not
@@ -66,10 +73,19 @@ public class PlayerMovement : MonoBehaviour
             // check if we are currently sliding
             if (isSliding)
             {
-                // check if we stopped (hit an object)
-                if (rb.linearVelocity == Vector2.zero)
+                // if we are moving, change speed according to decay rate
+                if (rb.linearVelocityX != 0)
                 {
-                    isSliding = false; // exit sliding state
+                    rb.linearVelocityX /= iceDecaySpeed;
+                }
+                else if (rb.linearVelocityY != 0)
+                {
+                    rb.linearVelocityY /= iceDecaySpeed;
+                }
+                else
+                {
+                    // reset isSliding to false
+                    isSliding = false;
                 }
             }
             else
@@ -77,13 +93,31 @@ public class PlayerMovement : MonoBehaviour
                 moveInput = context.ReadValue<Vector2>();
 
                 // only allow 4 directions on ice
-                if (moveInput.x > 0)
+                if (moveInput.x != 0)
                 {
+                    // update isSliding state
+                    isSliding = true;
+                    // set player input in x direction
                     animator.SetFloat("InputX", moveInput.x);
+                    // set player input in y direction
+                    animator.SetFloat("InputY", 0);
+
+                    // apply force
+                    rb.linearVelocityX = moveInput.x * moveSpeed;
+                    rb.linearVelocityY = 0;
                 }
-                else if (moveInput.y > 0)
+                else if (moveInput.y != 0)
                 {
+                    // update isSliding state
+                    isSliding = true;
+                    // set player input in y direction
                     animator.SetFloat("InputY", moveInput.y);
+                    // set player input in x direction
+                    animator.SetFloat("InputX", 0);
+                   
+                    // apply force
+                    rb.linearVelocityY = moveInput.y * moveSpeed;
+                    rb.linearVelocityX = 0;
                 }
                 
             }
@@ -160,6 +194,8 @@ public class PlayerMovement : MonoBehaviour
         {
             // update onIce state
             onIce = true;
+            // update isSliding state
+            isSliding = true;
         } 
     }
 
@@ -170,6 +206,10 @@ public class PlayerMovement : MonoBehaviour
         {
             // update onIce state
             onIce = false;
+            // update isSliding state
+            isSliding = false;
+            // reset momentum
+            moveInput = Vector2.zero;
         } 
     }
 }
