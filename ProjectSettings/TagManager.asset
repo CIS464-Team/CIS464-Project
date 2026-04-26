@@ -9,6 +9,8 @@ TagManager:
   - MenuCanvas
   - TutorialGate
   - Reflective
+  - Laser
+  - LaserIgnore
   layers:
   - Default
   - TransparentFX
