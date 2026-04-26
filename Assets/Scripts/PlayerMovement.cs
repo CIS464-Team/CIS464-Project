@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private soundManager soundManager;
     private bool playingFootsteps;
+    private bool onIce;
+    private bool isSliding;
     public float footstepSpeed = 0.5f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -58,10 +60,43 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("LastInputY", moveInput.y);
         }
 
-        moveInput = context.ReadValue<Vector2>();
+        // check for ice physics
+        if (onIce)
+        {
+            // check if we are currently sliding
+            if (isSliding)
+            {
+                // check if we stopped (hit an object)
+                if (rb.linearVelocity == Vector2.zero)
+                {
+                    isSliding = false; // exit sliding state
+                }
+            }
+            else
+            {
+                moveInput = context.ReadValue<Vector2>();
 
-        animator.SetFloat("InputX", moveInput.x);
-        animator.SetFloat("InputY", moveInput.y);
+                // only allow 4 directions on ice
+                if (moveInput.x > 0)
+                {
+                    animator.SetFloat("InputX", moveInput.x);
+                }
+                else if (moveInput.y > 0)
+                {
+                    animator.SetFloat("InputY", moveInput.y);
+                }
+                
+            }
+        }
+        else
+        {
+            // normal movement
+            moveInput = context.ReadValue<Vector2>();
+
+            animator.SetFloat("InputX", moveInput.x);
+            animator.SetFloat("InputY", moveInput.y);
+        }
+        
     }
 
     void startFootsteps()
@@ -118,4 +153,23 @@ public class PlayerMovement : MonoBehaviour
         // OR: rb.velocity = direction * moveSpeed;
     }   
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // check if we are in contact with ice
+        if (collision.CompareTag("ICE-E") )
+        {
+            // update onIce state
+            onIce = true;
+        } 
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // check if we are in contact with ice
+        if (collision.CompareTag("ICE-E") )
+        {
+            // update onIce state
+            onIce = false;
+        } 
+    }
 }
