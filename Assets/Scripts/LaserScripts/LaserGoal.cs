@@ -13,6 +13,7 @@ public class LaserGoal : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        transform.GetChild(0).gameObject.SetActive(false);
         if (spriteRenderer != null && lasergoal_0 != null)
         {
             spriteRenderer.sprite = lasergoal_0;
@@ -26,6 +27,7 @@ public class LaserGoal : MonoBehaviour
             isHit = true;
             if (spriteRenderer != null && lasergoal_1 != null)
                 spriteRenderer.sprite = lasergoal_1;
+                transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 }

@@ -162,14 +162,14 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -1.0489126, y: -0.43495652}
-  - {x: -1.0744956, y: -0.27546966}
+  - {x: -0.97321624, y: -0.045267105}
+  - {x: -1.0212278, y: 0.0020789504}
   - {x: -0.91322255, y: 0.44052118}
   - {x: -0.9146223, y: 0.72773695}
   - {x: -0.61253864, y: 0.7142411}
   - {x: -0.49764335, y: -0.008055717}
-  - {x: -0.48519126, y: -0.43491757}
-  - {x: -1.0274236, y: -0.43452448}
+  - {x: -0.726298, y: -0.008782327}
+  - {x: -0.9741559, y: -0.019603312}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -290,7 +290,7 @@ LineRenderer:
   m_MaskInteraction: 0
   m_Positions:
   - {x: 0.161, y: 0.353, z: 0}
-  - {x: 100.161, y: 0.353, z: 0}
+  - {x: 50.161, y: 0.353, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -363,5 +363,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   lineRenderer: {fileID: 279846733423414286}
   firePoint: {fileID: 238186327705357750}
-  maxDistance: 100
+  maxDistance: 50
   collidersToIgnore: []
+  laserColor: {r: 0.6784314, g: 0.882353, b: 0.9333334, a: 1}
+  lightIntensity: 0.51
+  lightOuterRadius: 1
+  lightSpacing: 0.5
