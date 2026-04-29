@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class LaserReflector : MonoBehaviour
 {
     public bool canMove = false;
+    private BoxCollider2D boxCollider;
     private bool playerInRange = false;
     public float moveSpeed = 5f; // Units per second
     private Vector3 targetPosition;
@@ -11,6 +12,10 @@ public class LaserReflector : MonoBehaviour
 
     void Start()
     {
+        boxCollider = GetComponent<BoxCollider2D>();
+        if(!canMove) {
+            boxCollider.isTrigger = false;
+        }
         if (transform.parent != null)
             targetPosition = transform.parent.position;
     }

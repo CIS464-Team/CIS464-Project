@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f74d7c3c64976d40a4e97695cbc38f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LaserReflector
-  canMove: 1
+  canMove: 0
   moveSpeed: 3
 --- !u!212 &7406008599124382795
 SpriteRenderer:
@@ -386,7 +386,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0033299923, y: 0.07611042}
+  m_Offset: {x: 0.0033299923, y: 0.10568173}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -396,7 +396,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.46518755, y: 0.41704953}
+  m_Size: {x: 0.46518755, y: 0.47619215}
   m_EdgeRadius: 0
 --- !u!1 &7465728343948532033
 GameObject:
