@@ -23,16 +23,16 @@ public class EnterTunnel : MonoBehaviour
 
             playerMovement = other.GetComponent<PlayerMovement>();
             if (playerMovement == null) return;
-            Vector2 entryDirection = Vector2.zero;
-            if(Keyboard.current.wKey.isPressed) entryDirection = Vector2.up;
-            if(Keyboard.current.sKey.isPressed) entryDirection = Vector2.down;
-            float offset = entryDirection.y > 0 ? teleportOffset : -teleportOffset;
-
-            StartCoroutine(TunnelTransition(entryDirection, offset));
+            if(Keyboard.current.wKey.isPressed) {
+                StartCoroutine(TunnelTransition(Vector2.up, 56f));
+            }
+            if(Keyboard.current.sKey.isPressed) {
+                StartCoroutine(TunnelTransition(Vector2.down, 4f));
+            }
         }
     }
 
-    private IEnumerator TunnelTransition(Vector2 direction, float yOffset)
+    private IEnumerator TunnelTransition(Vector2 direction, float y)
     {
         BoxCollider2D playerCollider = playerMovement.GetComponent<BoxCollider2D>();
         if (playerCollider != null) playerCollider.enabled = false;
@@ -41,14 +41,12 @@ public class EnterTunnel : MonoBehaviour
         playerInput.enabled = false;
         playerMovement.SetInputLocked(true);
 
-        
-        
         // Fade to black
         yield return StartCoroutine(Fade(0f, 1f));
 
         // Teleport player
         Vector3 pos = playerMovement.transform.position;
-        playerMovement.transform.position = new Vector3(-.5f, pos.y + yOffset, pos.z);
+        playerMovement.transform.position = new Vector3(-.5f, y, pos.z);
 
         // Brief pause in darkness
         yield return new WaitForSeconds(1f);
@@ -107,7 +105,7 @@ public class EnterTunnel : MonoBehaviour
 
         while (elapsed < autoWalkDuration)
         {
-            playerMovement.ApplyMovement(direction * 1f);
+            playerMovement.ApplyMovement(direction * 2f);
             elapsed += Time.deltaTime;
             yield return null;
         }
