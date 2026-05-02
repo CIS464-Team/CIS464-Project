@@ -29,6 +29,9 @@ public class TutorialText : MonoBehaviour
     private bool isWaitingForE = false;
     private bool isWaitingForAnyKey = false;
 
+    public bool cutsceneSkipped = false;
+    [SerializeField] public GameObject skipText;
+
     // Called whenever script is loaded
     void Awake()
     {
@@ -86,7 +89,7 @@ public class TutorialText : MonoBehaviour
     void Update()
     {
         // First, player presses E to start the paper rising animation
-        if (isWaitingForE && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+        if ( (isWaitingForE && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame) || cutsceneSkipped )
         {
             isWaitingForE = false;
             
@@ -97,7 +100,7 @@ public class TutorialText : MonoBehaviour
         }
 
         // Second, player presses any key to finish the tutorial
-        if (isWaitingForAnyKey && Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame)
+        if ( (isWaitingForAnyKey && Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame) || cutsceneSkipped)
         {
             isWaitingForAnyKey = false;
             
@@ -129,8 +132,10 @@ public class TutorialText : MonoBehaviour
             Keyboard.current.wKey.isPressed || Keyboard.current.aKey.isPressed || 
             Keyboard.current.sKey.isPressed || Keyboard.current.dKey.isPressed ||
             Keyboard.current.upArrowKey.isPressed || Keyboard.current.downArrowKey.isPressed ||
-            Keyboard.current.leftArrowKey.isPressed || Keyboard.current.rightArrowKey.isPressed);
-        
+            Keyboard.current.leftArrowKey.isPressed || Keyboard.current.rightArrowKey.isPressed ||
+            cutsceneSkipped
+            );
+
         // Final fade out of the tutorial text
         yield return StartCoroutine(FadeCanvas(0f));
     }
@@ -141,7 +146,7 @@ public class TutorialText : MonoBehaviour
         float startAlpha = canvasGroup.alpha;
         float time = 0;
 
-        while (time < fadeDuration)
+        while (!cutsceneSkipped && (time < fadeDuration) )
         {
             time += Time.deltaTime;
             // Interpolate the alpha value based on time passed
