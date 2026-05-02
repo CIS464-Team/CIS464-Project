@@ -7,10 +7,22 @@ public class FinalPuzzle : MonoBehaviour
     public GameObject block1;
     public GameObject block2;
     public GameObject laserGoal;
+    private Transform[] movablePieces;
+    private Vector3[] startPositions;
     void Start()
     {
         block1.transform.localPosition = new Vector3(-14.3f, 3f, 0);
         block2.transform.localPosition = new Vector3(-14.3f, 1.9f, 0);
+        // Skip index 0 since that's FinalPuzzle itself
+        Transform[] allChildren = GetComponentsInChildren<Transform>(true);
+        movablePieces = new Transform[allChildren.Length - 1];
+        for (int i = 1; i < allChildren.Length; i++)
+            movablePieces[i - 1] = allChildren[i];
+
+        // Snapshot after Start() has placed everything
+        startPositions = new Vector3[movablePieces.Length];
+        for (int i = 0; i < movablePieces.Length; i++)
+            startPositions[i] = movablePieces[i].localPosition;
     }
 
     // Update is called once per frame
@@ -38,4 +50,10 @@ public class FinalPuzzle : MonoBehaviour
 
         block.transform.localPosition = targetPos; // snap to exact final position
     }
+    public void ResetPuzzle()
+    {
+        print("Resetting Area 4's Final Puzzle");
+        for (int i = 0; i < movablePieces.Length; i++)
+            movablePieces[i].localPosition = startPositions[i];
+    } 
 }

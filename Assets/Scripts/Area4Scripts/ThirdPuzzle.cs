@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class FirstPuzzle : MonoBehaviour
+public class ThirdPuzzle : MonoBehaviour
 {
     
     public GameObject block1;
@@ -11,9 +11,9 @@ public class FirstPuzzle : MonoBehaviour
     private Vector3[] startPositions;
     void Start()
     {
-        block1.transform.localPosition = new Vector3(-2.5f, 5.683f, 0);
-        block2.transform.localPosition = new Vector3(-1.5f, 5.683f, 0);
-        // Skip index 0 since that's FirstPuzzle itself
+        block1.transform.localPosition = new Vector3(1.45f, -.2f, 0);
+        block2.transform.localPosition = new Vector3(2.5f, -.2f, 0);
+        // Skip index 0 since that's ThirdPuzzle itself
         Transform[] allChildren = GetComponentsInChildren<Transform>(true);
         movablePieces = new Transform[allChildren.Length - 1];
         for (int i = 1; i < allChildren.Length; i++)
@@ -30,8 +30,8 @@ public class FirstPuzzle : MonoBehaviour
     {
         if (laserGoal.GetComponent<LaserGoal>().isHit)
         {
-        StartCoroutine(MoveBlock(block1, new Vector3(-3.7f, 5.683f, 0)));
-        StartCoroutine(MoveBlock(block2, new Vector3(-.3f, 5.683f, 0)));
+        StartCoroutine(MoveBlock(block1, new Vector3(.45f, -.2f, 0)));
+        StartCoroutine(MoveBlock(block2, new Vector3(3.5f, -.2f, 0)));
         }  
     }
     
@@ -50,11 +50,10 @@ public class FirstPuzzle : MonoBehaviour
 
         block.transform.localPosition = targetPos; // snap to exact final position
     }
-
     public void ResetPuzzle()
     {
-        print("Resetting Area 4's First Puzzle");
+        print("Resetting Area 4's Third Puzzle");
         for (int i = 0; i < movablePieces.Length; i++)
             movablePieces[i].localPosition = startPositions[i];
-    }   
+    } 
 }
