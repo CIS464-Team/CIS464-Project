@@ -9,6 +9,7 @@ public class FirstPuzzle : MonoBehaviour
     public GameObject laserGoal;
     private Transform[] movablePieces;
     private Vector3[] startPositions;
+    public bool canReset = false;
     void Start()
     {
         block1.transform.localPosition = new Vector3(-2.5f, 5.683f, 0);
@@ -28,6 +29,18 @@ public class FirstPuzzle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Check if any of the reflectors have been moved from their starting positions, and if so, allow the player to reset the puzzle
+        if (!canReset)
+        {
+            for (int i = 0; i < movablePieces.Length; i++)
+            {
+                if (movablePieces[i].localPosition != startPositions[i])
+                {
+                    canReset = true;
+                    break;
+                }
+            }
+        }
         if (laserGoal.GetComponent<LaserGoal>().isHit)
         {
         StartCoroutine(MoveBlock(block1, new Vector3(-3.7f, 5.683f, 0)));
