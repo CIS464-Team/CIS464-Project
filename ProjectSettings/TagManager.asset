@@ -11,6 +11,8 @@ TagManager:
   - Reflective
   - Laser
   - LaserIgnore
+  - ICE-E
+  - KeyUI
   layers:
   - Default
   - TransparentFX
@@ -47,6 +49,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Puzzle
+    uniqueID: 732983305
     locked: 0
   - name: Ground
     uniqueID: 1453723687

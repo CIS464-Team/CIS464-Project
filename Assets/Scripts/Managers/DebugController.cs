@@ -16,6 +16,7 @@ public class DebugController : MonoBehaviour
     public static DebugCommand TP_A2;
     public static DebugCommand TP_A3;
     public static DebugCommand TP_A4;
+    public static DebugCommand TP_T1;
     public static DebugCommand TP_Cent;
     public static DebugCommand TP_TutC;
         // Autocomplete puzzles
@@ -49,6 +50,11 @@ public class DebugController : MonoBehaviour
            transitionManager.CheatTP("Area4");
         });
 
+        TP_T1 = new DebugCommand("TP_T1", "Teleport directly to Reasure 1", "TP_T1", () =>
+        {
+            transitionManager.CheatTP("Treasure1");
+        });
+
         TP_Cent = new DebugCommand("TP_Cent", "Teleport directly to Central", "TP_Cent", () =>
         {
            transitionManager.CheatTP("Central");
@@ -69,7 +75,8 @@ public class DebugController : MonoBehaviour
             TP_A1, 
             TP_A2, 
             TP_A3, 
-            TP_A4, 
+            TP_A4,
+            TP_T1,
             TP_Cent, 
             TP_TutC, 
             help,
