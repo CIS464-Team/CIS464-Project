@@ -8,6 +8,9 @@ TagManager:
   - Audio
   - MenuCanvas
   - TutorialGate
+  - Reflective
+  - Laser
+  - LaserIgnore
   - ICE-E
   - KeyUI
   layers:
