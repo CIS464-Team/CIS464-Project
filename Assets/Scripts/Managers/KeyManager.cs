@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class KeyManager : MonoBehaviour
 {
     // set up key data
-    private static KeyData keyData = new KeyData();
+    private KeyData keyData = new KeyData();
     // private GameObject[] keyObjects = new GameObject[4];
     [SerializeField] public GameObject[] keyObjects = new GameObject[4];
     [SerializeField] public GameObject[] hiddenKeys = new GameObject[4];

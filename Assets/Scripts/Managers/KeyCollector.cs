@@ -10,6 +10,7 @@ public class KeyCollector : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        keyManager = FindFirstObjectByType<KeyManager>();
 
         // check to see if we collected this key already
         keyState = keyManager.GetKeysHeld()[keyID];
@@ -27,8 +28,8 @@ public class KeyCollector : MonoBehaviour
         {
             Debug.Log("Key " + keyID + " picked up");
 
-            // play the gate opening sound
-            soundManager.Instance.PlaySFX("gateopen");
+            // play the key obtain sound
+            soundManager.Instance.PlaySFX("KeyChime");
 
             // update keys held
             keyManager.SetKeysHeld(keyID, true);
