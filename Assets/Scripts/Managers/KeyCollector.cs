@@ -25,9 +25,6 @@ public class KeyCollector : MonoBehaviour
         // check if we are in contact with a goal item
         if (collision.CompareTag("Player") )
         {
-             // remove the key itself
-            gameObject.SetActive(false);
-
             Debug.Log("Key " + keyID + " picked up");
 
             // play the gate opening sound
@@ -36,7 +33,8 @@ public class KeyCollector : MonoBehaviour
             // update keys held
             keyManager.SetKeysHeld(keyID, true);
 
-           
+            // remove the key itself
+            gameObject.SetActive(false);
         }
     }
 }
