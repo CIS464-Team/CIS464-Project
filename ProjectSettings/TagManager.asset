@@ -9,6 +9,7 @@ TagManager:
   - MenuCanvas
   - TutorialGate
   - ICE-E
+  - KeyUI
   layers:
   - Default
   - TransparentFX

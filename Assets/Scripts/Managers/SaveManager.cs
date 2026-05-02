@@ -10,6 +10,7 @@ public class SaveManager : MonoBehaviour
     private string saveLocation;
     private InGameMenuManager menuManager;
     private KeyManager keyManager;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -55,6 +56,7 @@ public class SaveManager : MonoBehaviour
             // apply new scene transition
             SceneController.Instance
                 .NewTransition()
+                .Load(SceneDatabase.Slots.Session, SceneDatabase.Scenes.Session)
                 .Load(SceneDatabase.Slots.SessionContent, saveData.currentArea, setActive:true)
                 .Unload(SceneDatabase.Slots.Menu)
                 .WithOverlay()
@@ -62,6 +64,13 @@ public class SaveManager : MonoBehaviour
                 .Perform();
             menuManager.isMainMenuActive = false;
             menuManager.CloseSettings();
+
+            // update key state
+            for (int i = 0; i < 4; i++)
+            {
+                keyManager.SetKeysHeld(i, saveData.keysHeld[i]);
+            }
+            
         }
         else
         {
