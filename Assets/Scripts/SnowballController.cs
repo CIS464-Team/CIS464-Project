@@ -21,12 +21,22 @@ public class SnowballController : MonoBehaviour
         // check if we are in contact with a goal item
         if (collision.collider.tag == "Goal" )
         {
-            // remove the goal and the snowball
-            collision.gameObject.SetActive(false);
-            gameObject.SetActive(false);
+            if (collision.gameObject.tag == "Goal")
+            {
+                // remove the goal and the snowball
+                collision.gameObject.SetActive(false);
+                gameObject.SetActive(false);
 
-            //play goal met sound
-            soundManager.Instance.PlaySFX("goal");
+                //play goal met sound
+                soundManager.Instance.PlaySFX("goal");
+
+                Debug.Log("Removed goal object");
+            }
+            else
+            {
+                Debug.Log("Warning: Attempted to remove a non-goal object");
+            }
+            
         }    
     }
 }

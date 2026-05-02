@@ -12,7 +12,7 @@ public class LanternPickup : MonoBehaviour
         }
     }
 
-    void PickupLantern(GameObject player)
+    public void PickupLantern(GameObject player)
     {
         Debug.Log("Lantern picked up!");
         transform.SetParent(player.transform);
