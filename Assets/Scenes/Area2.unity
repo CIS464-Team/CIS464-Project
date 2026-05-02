@@ -18939,6 +18939,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 10041094904425877, guid: 3b92d1db61b7c4bd98b2b6d66b0af60c, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10041094904425877, guid: 3b92d1db61b7c4bd98b2b6d66b0af60c, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2966256717518575012, guid: 3b92d1db61b7c4bd98b2b6d66b0af60c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.35
@@ -18981,7 +18989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6252083678961601416, guid: 3b92d1db61b7c4bd98b2b6d66b0af60c, type: 3}
       propertyPath: m_Name
-      value: GoldKey_0
+      value: Area2 Key
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
