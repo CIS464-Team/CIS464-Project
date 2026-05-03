@@ -10,6 +10,7 @@ public class TowerDoor : MonoBehaviour
     {
         print("ALERT: OPENING THE FINAL DOOOR!! YESSS!!!");
         DoorClosed.SetActive(false);
+        soundManager.Instance.PlaySFX("DoorOpen");
         DoorOpen.SetActive(true);
         TheEndTP.SetActive(true);
     }
