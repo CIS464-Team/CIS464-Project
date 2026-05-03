@@ -3,7 +3,7 @@ using System.Collections;
 
 public class FirstPuzzle : MonoBehaviour
 {
-    
+    private bool hasMovedBlocks = false;
     public GameObject block1;
     public GameObject block2;
     public GameObject laserGoal;
@@ -24,6 +24,14 @@ public class FirstPuzzle : MonoBehaviour
         startPositions = new Vector3[movablePieces.Length];
         for (int i = 0; i < movablePieces.Length; i++)
             startPositions[i] = movablePieces[i].localPosition;
+
+        if (Area4Manager.Instance.LaserGoalsHit[0])
+        {
+            hasMovedBlocks = true;
+            block1.transform.localPosition = new Vector3(-3.7f, 5.683f, 0);
+            block2.transform.localPosition = new Vector3(-.3f, 5.683f, 0);
+            laserGoal.GetComponent<LaserGoal>().isHit = true;
+        }
     }
 
     // Update is called once per frame
@@ -41,10 +49,12 @@ public class FirstPuzzle : MonoBehaviour
                 }
             }
         }
-        if (laserGoal.GetComponent<LaserGoal>().isHit)
+        if (laserGoal.GetComponent<LaserGoal>().isHit && !hasMovedBlocks)
         {
-        StartCoroutine(MoveBlock(block1, new Vector3(-3.7f, 5.683f, 0)));
-        StartCoroutine(MoveBlock(block2, new Vector3(-.3f, 5.683f, 0)));
+            Area4Manager.Instance.LaserGoalsHit[0] = true;
+            hasMovedBlocks = true;
+            StartCoroutine(MoveBlock(block1, new Vector3(-3.7f, 5.683f, 0)));
+            StartCoroutine(MoveBlock(block2, new Vector3(-.3f, 5.683f, 0)));
         }  
     }
     
@@ -53,7 +63,9 @@ public class FirstPuzzle : MonoBehaviour
         Vector3 startPos = block.transform.localPosition;
         float duration = 1f; // seconds
         float elapsed = 0f;
-
+        yield return new WaitForSeconds(1f);
+        soundManager.Instance.PlaySFX("A4Block");
+        yield return new WaitForSeconds(.4f);
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;

@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[ExecuteAlways]
 public class LaserGoal : MonoBehaviour
 {
     // Assign these in the Inspector
@@ -18,6 +17,12 @@ public class LaserGoal : MonoBehaviour
         {
             spriteRenderer.sprite = lasergoal_0;
         }
+        if(isHit)
+        {
+            if (spriteRenderer != null && lasergoal_1 != null)
+                spriteRenderer.sprite = lasergoal_1;
+                transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 
     public void Activate()
@@ -27,6 +32,7 @@ public class LaserGoal : MonoBehaviour
             isHit = true;
             if (spriteRenderer != null && lasergoal_1 != null)
                 spriteRenderer.sprite = lasergoal_1;
+                soundManager.Instance.PlaySFX("A4LaserGoal");
                 transform.GetChild(0).gameObject.SetActive(true);
         }
     }

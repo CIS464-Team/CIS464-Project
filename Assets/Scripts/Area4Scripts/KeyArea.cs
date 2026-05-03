@@ -16,6 +16,11 @@ public class KeyArea : MonoBehaviour
             tunnelSpriteRenderer.sortingLayerName = "Collision";
             transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = false;
         }
+        if(Area4Manager.Instance != null && Area4Manager.Instance.TunnelOpen)
+        {
+            tunnelOpen = true;
+            OpenTunnel();
+        }
     }
 
     public void OpenTunnel()
@@ -28,6 +33,7 @@ public class KeyArea : MonoBehaviour
         transform.GetChild(1).gameObject.SetActive(true);
         transform.GetChild(2).gameObject.SetActive(true);
         transform.GetChild(3).gameObject.SetActive(true);
+        transform.GetChild(4).gameObject.SetActive(true);
         
         
     }
