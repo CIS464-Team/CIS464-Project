@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SecondPuzzle : MonoBehaviour
 {
-    
+    private bool hasMovedBlocks = false;
     public GameObject block1;
     public GameObject block2;
     public GameObject laserGoal;
@@ -24,6 +24,14 @@ public class SecondPuzzle : MonoBehaviour
         startPositions = new Vector3[movablePieces.Length];
         for (int i = 0; i < movablePieces.Length; i++)
             startPositions[i] = movablePieces[i].localPosition;
+
+        if (Area4Manager.Instance.LaserGoalsHit[1])
+        {
+            hasMovedBlocks = true;
+            block1.transform.localPosition = new Vector3(19.5f, 6f, 0);
+            block2.transform.localPosition = new Vector3(19.5f, 2f, 0);
+            laserGoal.GetComponent<LaserGoal>().isHit = true;
+        }
     }
 
     // Update is called once per frame
@@ -41,11 +49,13 @@ public class SecondPuzzle : MonoBehaviour
                 }
             }
         }
-        if (laserGoal.GetComponent<LaserGoal>().isHit)
+        if (laserGoal.GetComponent<LaserGoal>().isHit && !hasMovedBlocks)
         {
+            Area4Manager.Instance.LaserGoalsHit[1] = true;
+            hasMovedBlocks = true;
             StartCoroutine(MoveBlock(block1, new Vector3(19.5f, 6f, 0)));
             StartCoroutine(MoveBlock(block2, new Vector3(19.5f, 2f, 0)));
-        }  
+        }
     }
     
     private IEnumerator MoveBlock(GameObject block, Vector3 targetPos)
@@ -53,7 +63,7 @@ public class SecondPuzzle : MonoBehaviour
         Vector3 startPos = block.transform.localPosition;
         float duration = 1f; // seconds
         float elapsed = 0f;
-
+        soundManager.Instance.PlaySFX("A4Block");
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
@@ -69,5 +79,6 @@ public class SecondPuzzle : MonoBehaviour
         print("Resetting Area 4's Second Puzzle");
         for (int i = 0; i < movablePieces.Length; i++)
             movablePieces[i].localPosition = startPositions[i];
+        hasMovedBlocks = false;
     } 
 }

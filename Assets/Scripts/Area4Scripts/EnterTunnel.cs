@@ -7,7 +7,7 @@ public class EnterTunnel : MonoBehaviour
     public KeyArea keyArea;
     private PlayerMovement playerMovement;
     public float autoWalkDuration = 1f;
-    public bool tunnelOpen = false;
+    public bool tunnelOpen = Area4Manager.Instance != null && Area4Manager.Instance.TunnelOpen;
 
     [Header("Tunnel Transition")]
     public float fadeDuration = 0.5f;
@@ -54,11 +54,14 @@ public class EnterTunnel : MonoBehaviour
         // Fade back in
         yield return StartCoroutine(Fade(1f, 0f));
         
-        if (!tunnelOpen)
+        if (!Area4Manager.Instance.TunnelOpen)
             {
                 print("Opening tunnel...");
+                soundManager.Instance.PlaySFX("A4TunnelOpen");
+                yield return new WaitForSeconds(.4f);
                 keyArea.OpenTunnel();
                 tunnelOpen = true;
+                Area4Manager.Instance.TunnelOpen = true;
 
                 yield return new WaitForSeconds(1f);
                 // Auto-walk after reappearing

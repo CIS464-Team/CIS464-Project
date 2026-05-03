@@ -36,7 +36,9 @@ public class SaveManager : MonoBehaviour
             SaveData saveData = new SaveData
             {
                 currentArea = loadedScene,
-                keysHeld = keyManager.GetKeysHeld()
+                keysHeld = keyManager.GetKeysHeld(),
+                laserGoalsHit = Area4Manager.Instance != null ? Area4Manager.Instance.LaserGoalsHit : new bool[4],
+                tunnelOpen = Area4Manager.Instance != null && Area4Manager.Instance.TunnelOpen
             };
 
             // save to file
