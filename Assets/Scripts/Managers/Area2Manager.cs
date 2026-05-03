@@ -54,6 +54,7 @@ public void CheckTile(Vector3Int pos)
 void FailPuzzle(Vector3Int pos)
 {
     isFailed = true;
+    
     // Change the tile to the "fail" tile
     if (puzzleTilemap != null && failTile != null)
     {
@@ -69,6 +70,7 @@ void FailPuzzle(Vector3Int pos)
         soundManager.Instance.PlaySFX("IncorrectTile");
         soundManager.Instance.PlaySFX("Area2Gate");
     }
+
     if (resetButton != null) 
     {
         resetButton.ShowButton();

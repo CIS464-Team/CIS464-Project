@@ -21,6 +21,9 @@ public class ResetButton : MonoBehaviour
         sr.enabled = true;
         col.enabled = true;
 
+        // Reset size to 0.25
+        transform.localScale = new Vector3(0.25f, 0.25f, 1f); 
+
         // Opacity to 70%
         sr.color = new Color(1f, 1f, 1f, 0.7f); 
 
@@ -57,9 +60,9 @@ public class ResetButton : MonoBehaviour
             // Fade the color alpha from 0.7 down to 0
             sr.color = new Color(0f, 0f, 1f, 0.7f * (1 - percent));
 
-            // Shrink the scale from 1 to 0
+            // Shrink the scale from 0.25 to 0
             if (transform.localScale.x > 0)
-                transform.localScale = Vector3.one * (1f * (1 - percent));
+                transform.localScale = Vector3.one * (0.25f * (1 - percent));
 
             yield return null; // Wait for the next frame
         }
