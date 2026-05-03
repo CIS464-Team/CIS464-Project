@@ -25,6 +25,7 @@ public class DebugController : MonoBehaviour
     public static DebugCommand Auto_Tut;
        // public static DebugCommand MORE AUTO PUZZLES!!
     public static DebugCommand<int> set_player_speed;
+    public static DebugCommand win;
     public static DebugCommand help;
 
     public List<object> commandList;
@@ -77,6 +78,13 @@ public class DebugController : MonoBehaviour
            transitionManager.CheatTP("TutorialContinued");
         });
 
+        win = new DebugCommand("win", "Win the game (it gives you keys)", "win", () =>
+        {
+            GameObject debugKeys = GameObject.FindGameObjectWithTag("DebugKeys");
+            Debug.Log(debugKeys);
+            debugKeys.transform.position = new Vector2(-3.5f, -1f);
+        });
+
         help = new DebugCommand("help", "Show list of all commands", "help", ()=>
         {
            showHelp=true; 
@@ -92,7 +100,8 @@ public class DebugController : MonoBehaviour
             TP_Cent, 
             TP_End,
             TP_Tut,
-            TP_TutC, 
+            TP_TutC,
+            win,
             help,
             //Auto_Tut,
             //set_player_speed
