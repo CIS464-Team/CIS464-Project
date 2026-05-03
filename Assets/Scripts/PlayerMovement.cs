@@ -203,7 +203,7 @@ void CheckPush()
         // Skip the player
         if (hit.collider.CompareTag("Player")) continue;
 
-        Debug.Log($"Raycast hit: {hit.collider.name} | tag: {hit.collider.tag}");
+        //Debug.Log($"Raycast hit: {hit.collider.name} | tag: {hit.collider.tag}");
 
         if (hit.collider.CompareTag("Statue"))
         {
