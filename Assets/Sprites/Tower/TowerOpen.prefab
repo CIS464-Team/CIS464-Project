@@ -1054,7 +1054,7 @@ GameObject:
   - component: {fileID: 9055188399150974016}
   - component: {fileID: 3544937233083801277}
   m_Layer: 0
-  m_Name: New Tile Palette
+  m_Name: TowerOpen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
