@@ -14,11 +14,12 @@ TagManager:
   - ICE-E
   - KeyUI
   - Statue
+  - door
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Obstacles
   - Water
   - UI
   - 
