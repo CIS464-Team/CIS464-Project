@@ -64,6 +64,9 @@ TagManager:
   - name: Collision
     uniqueID: 2218811587
     locked: 0
+  - name: statues
+    uniqueID: 2316680475
+    locked: 0
   - name: Player
     uniqueID: 3706716543
     locked: 0
