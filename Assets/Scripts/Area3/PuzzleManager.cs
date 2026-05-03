@@ -13,11 +13,13 @@ public class PuzzleManager : MonoBehaviour
 
     public void CheckPuzzle()
     {
+        //For every statue slot check if it's in the right spot
         foreach (statueSlot slot in slots)
         {
             if(!slot.IsCorrect()) return;
         }
 
+        //When solved deactivate door and play sound
         door.SetActive(false);
         Debug.Log("Puzzle solved!");
     }

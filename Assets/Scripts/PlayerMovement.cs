@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isSliding;
     public float footstepSpeed = 0.5f;
     public float pushCooldown = 0.2f;
-    private float lastPush;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
         
         animator.SetBool("isWalking", rb.linearVelocity.magnitude > 0);
 
-        CheckPush();
 
         //when player is moving play footstep audio and stop if their not
         if (rb.linearVelocity.magnitude > 0 && !playingFootsteps)
@@ -189,30 +188,7 @@ public class PlayerMovement : MonoBehaviour
         rb.MovePosition(rb.position + direction * moveSpeed * Time.deltaTime);
         // OR: rb.velocity = direction * moveSpeed;
     }   
-void CheckPush()
-{
-    if (Time.time - lastPush < pushCooldown) return;
-    if (moveInput == Vector2.zero) return;
 
-    // Start the ray slightly in front of the player to avoid self-hit
-    Vector2 origin = rb.position + moveInput.normalized * 0.5f;
-    RaycastHit2D[] hits = Physics2D.RaycastAll(origin, moveInput.normalized, 0.8f);
-
-    foreach (RaycastHit2D hit in hits)
-    {
-        // Skip the player
-        if (hit.collider.CompareTag("Player")) continue;
-
-        Debug.Log($"Raycast hit: {hit.collider.name} | tag: {hit.collider.tag}");
-
-        if (hit.collider.CompareTag("Statue"))
-        {
-            hit.collider.GetComponent<Statue>().Push(moveInput.normalized);
-            lastPush = Time.time;
-        }
-        break; // stop at first non-player thing we hit
-    }
-}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
