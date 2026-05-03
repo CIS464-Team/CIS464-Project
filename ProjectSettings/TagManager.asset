@@ -15,6 +15,7 @@ TagManager:
   - KeyUI
   - Statue
   - door
+  - TowerDoor
   layers:
   - Default
   - TransparentFX

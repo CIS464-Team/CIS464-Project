@@ -58250,6 +58250,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Area4ThirdPuzzleResetButton
   puzzle: {fileID: 587267652}
+  sr: {fileID: 0}
+  col: {fileID: 0}
 --- !u!212 &43481025
 SpriteRenderer:
   serializedVersion: 2
@@ -62439,6 +62441,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   puzzle: {fileID: 2040573412}
+  sr: {fileID: 0}
+  col: {fileID: 0}
 --- !u!212 &953506844
 SpriteRenderer:
   serializedVersion: 2
@@ -62729,6 +62733,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Area4FinalPuzzleResetButton
   puzzle: {fileID: 802095648}
+  sr: {fileID: 0}
+  col: {fileID: 0}
 --- !u!212 &970189347
 SpriteRenderer:
   serializedVersion: 2
@@ -77846,6 +77852,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   puzzle: {fileID: 1151044364}
+  sr: {fileID: 0}
+  col: {fileID: 0}
 --- !u!1 &1426963288
 GameObject:
   m_ObjectHideFlags: 0
