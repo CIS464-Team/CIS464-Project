@@ -29,6 +29,8 @@ public class TutorialText : MonoBehaviour
     private bool isWaitingForE = false;
     private bool isWaitingForAnyKey = false;
 
+    // Skipped section in inspector
+    [Header("Skipped")]
     public bool cutsceneSkipped = false;
     [SerializeField] public GameObject skipText;
 
@@ -138,6 +140,9 @@ public class TutorialText : MonoBehaviour
 
         // Final fade out of the tutorial text
         yield return StartCoroutine(FadeCanvas(0f));
+
+        // remove the skip text
+        skipText.SetActive(false);
     }
 
     // Fades canvas in or out based on targetAlpha
