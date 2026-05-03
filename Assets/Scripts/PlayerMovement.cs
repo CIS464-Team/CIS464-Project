@@ -47,10 +47,18 @@ public class PlayerMovement : MonoBehaviour
         //when player is moving play footstep audio and stop if their not
         if (rb.linearVelocity.magnitude > 0 && !playingFootsteps)
         {
-            startFootsteps();
+            if (onIce)
+            {
+                StartSlide();
+            } else
+            {
+                StartFootsteps();
+            }
+            
         } else if (rb.linearVelocity.magnitude == 0)
         {
             StopFootsteps();
+            StopSlide();
         }  
     }
 
@@ -136,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    void startFootsteps()
+    void StartFootsteps()
     //while bool is true keep calling Playfoorstep repeatedly
     {
         playingFootsteps = true;
@@ -151,6 +159,24 @@ public class PlayerMovement : MonoBehaviour
     void PlayFootstep()
     {
         soundManager.Instance.PlaySFX("footsteps");
+    }
+
+    void StartSlide()
+    //while bool is true keep calling Playfoorstep repeatedly
+    {
+        playingFootsteps = true;
+        PlayFootstep();
+        InvokeRepeating(nameof(PlaySlide), 0f, footstepSpeed);
+    }
+    void StopSlide()
+    {
+    //once bool is false stop calling it
+        playingFootsteps = false;
+        CancelInvoke(nameof(PlaySlide));
+    }
+    void PlaySlide()
+    {
+        soundManager.Instance.PlaySFX("IceSlide");
     }
 
 
