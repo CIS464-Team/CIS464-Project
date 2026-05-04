@@ -2056,6 +2056,12 @@ MonoBehaviour:
   - name: Moss
     audioClips:
     - {fileID: 8300000, guid: 1be2fcc16ab0da84f99ba7c633037620, type: 3}
+  - name: Ice Wall 2
+    audioClips:
+    - {fileID: 8300000, guid: 43b714052fa5e4f288f13a6115c5c89d, type: 3}
+  - name: PlasticBox2
+    audioClips:
+    - {fileID: 8300000, guid: 107efa49600d04b8a8f04a2e67724330, type: 3}
   - name: SnowPush
     audioClips:
     - {fileID: 8300000, guid: fec072db4263a4fbc9d7947c0be9ebf1, type: 3}
