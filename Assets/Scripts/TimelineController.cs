@@ -16,9 +16,6 @@ public class TimelineControl : MonoBehaviour
 
     void Start()
     {
-        // find lantern controller
-        lanternPickup = GameObject.FindFirstObjectByType<LanternPickup>();
-
         // find player object
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -55,9 +52,6 @@ public class TimelineControl : MonoBehaviour
 
         // Optionally stop the director if it doesn't stop automatically
         director.Stop();
-
-        // pickup the lantern
-        lanternPickup.PickupLantern(player);
 
         // remove the skip text
         skipText.SetActive(false);

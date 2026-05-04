@@ -63,7 +63,7 @@ public class TutorialText : MonoBehaviour
             // Temporarily pause the player animations
             if (playerMovementScript.TryGetComponent<Animator>(out playerAnimator))
             {
-                playerAnimator.speed = 0;
+                playerAnimator.enabled = false;
             }
         }
 
@@ -116,8 +116,9 @@ public class TutorialText : MonoBehaviour
                 if (playerMovementScript.TryGetComponent<Animator>(out playerAnimator))
                 {
                     // Plugs the walking/idle logic back into the player animator
-                    playerAnimator.runtimeAnimatorController = playerController;
-                    playerAnimator.speed = 1;
+                    if (playerAnimator.runtimeAnimatorController == null)
+                        playerAnimator.runtimeAnimatorController = playerController;
+                    playerAnimator.enabled = true;
                 }
             }
 
