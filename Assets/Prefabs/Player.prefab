@@ -168,7 +168,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -588250753
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2440491665661579363, guid: 1915762ebdee94ef18f256bcd474212b, type: 3}
@@ -383,7 +383,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   moveSpeed: 2.5
+  iceDecaySpeed: 1
   footstepSpeed: 0.5
+  pushCooldown: 0.2
 --- !u!95 &7685639899575582898
 Animator:
   serializedVersion: 7
@@ -463,7 +465,6 @@ GameObject:
   - component: {fileID: 6126021201454600398}
   - component: {fileID: 7174000951170779914}
   - component: {fileID: 4786992863868455110}
-  - component: {fileID: 3746642807641420710}
   m_Layer: 0
   m_Name: Lantern
   m_TagString: Untagged
@@ -480,7 +481,7 @@ Transform:
   m_GameObject: {fileID: 7253897977032530417}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.1, z: 0}
+  m_LocalPosition: {x: 0, y: -0.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -533,7 +534,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -588250753
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3534642730963089603, guid: 164d1a7216fb36340a41ba306db4b954, type: 3}
@@ -568,15 +569,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3746642807641420710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7253897977032530417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41a925352c5c647459b12ef494ed2d89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
