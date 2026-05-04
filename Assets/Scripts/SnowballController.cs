@@ -37,6 +37,10 @@ public class SnowballController : MonoBehaviour
                 Debug.Log("Warning: Attempted to remove a non-goal object");
             }
             
-        }    
+        }
+        else
+        {
+            soundManager.Instance?.PlaySFX("SnowPush");
+        }
     }
 }

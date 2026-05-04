@@ -29,6 +29,8 @@ public class TutorialText : MonoBehaviour
     private bool isWaitingForE = false;
     private bool isWaitingForAnyKey = false;
 
+    // Skipped section in inspector
+    [Header("Skipped")]
     public bool cutsceneSkipped = false;
     [SerializeField] public GameObject skipText;
 
@@ -61,7 +63,7 @@ public class TutorialText : MonoBehaviour
             // Temporarily pause the player animations
             if (playerMovementScript.TryGetComponent<Animator>(out playerAnimator))
             {
-                playerAnimator.speed = 0;
+                playerAnimator.enabled = false;
             }
         }
 
@@ -114,8 +116,9 @@ public class TutorialText : MonoBehaviour
                 if (playerMovementScript.TryGetComponent<Animator>(out playerAnimator))
                 {
                     // Plugs the walking/idle logic back into the player animator
-                    playerAnimator.runtimeAnimatorController = playerController;
-                    playerAnimator.speed = 1;
+                    if (playerAnimator.runtimeAnimatorController == null)
+                        playerAnimator.runtimeAnimatorController = playerController;
+                    playerAnimator.enabled = true;
                 }
             }
 
@@ -138,6 +141,9 @@ public class TutorialText : MonoBehaviour
 
         // Final fade out of the tutorial text
         yield return StartCoroutine(FadeCanvas(0f));
+
+        // remove the skip text
+        skipText.SetActive(false);
     }
 
     // Fades canvas in or out based on targetAlpha

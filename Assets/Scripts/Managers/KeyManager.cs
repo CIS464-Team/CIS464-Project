@@ -45,21 +45,16 @@ public class KeyManager : MonoBehaviour
         }
     }
 
-    public void CheckAllKeys()
+    public bool CheckAllKeys()
     {
-        bool allKeys = true;
-
+        print("We are checking for 4 keys");
         for (int i = 0; i < 4; i++)
         {
             if (keyData.keysHeld[i] == false)
             {
-                allKeys = false;
+                return false;
             }
         }
-
-        if (allKeys == true)
-        {
-            // todo: handle opening door in central
-        }
+        return true;
     }
 }

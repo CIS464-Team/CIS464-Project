@@ -1546,12 +1546,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1245852216}
-  - {fileID: 964862776}
-  - {fileID: 1713749438}
-  - {fileID: 1686583229}
   - {fileID: 313914143}
+  - {fileID: 964862776}
   - {fileID: 723092752}
+  - {fileID: 1713749438}
   - {fileID: 1880212145}
+  - {fileID: 1686583229}
   - {fileID: 1546012953}
   m_Father: {fileID: 47144894}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2062,6 +2062,20 @@ MonoBehaviour:
   - name: PlasticBox2
     audioClips:
     - {fileID: 8300000, guid: 107efa49600d04b8a8f04a2e67724330, type: 3}
+  - name: SnowPush
+    audioClips:
+    - {fileID: 8300000, guid: fec072db4263a4fbc9d7947c0be9ebf1, type: 3}
+    - {fileID: 8300000, guid: bec77411530e9443a96a7cab9b316661, type: 3}
+    - {fileID: 8300000, guid: 1d9646fdfdd0b43b1a7f8df370723fb6, type: 3}
+    - {fileID: 8300000, guid: 5303be02b1d564ea28df8bd660c56926, type: 3}
+    - {fileID: 8300000, guid: 74226b8f2e15c422aa9e8e5d54d418f5, type: 3}
+    - {fileID: 8300000, guid: 07b0598396b2d453c918e9ccbd18f3b2, type: 3}
+  - name: IceSlide
+    audioClips:
+    - {fileID: 8300000, guid: 38db866018f4c429f8a2eab92810cd17, type: 3}
+  - name: DoorOpen
+    audioClips:
+    - {fileID: 8300000, guid: 2c6a807da08f868459888ca32bd167bc, type: 3}
 --- !u!82 &698448548
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2488,7 +2502,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

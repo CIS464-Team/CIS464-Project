@@ -18,11 +18,14 @@ public class DebugController : MonoBehaviour
     public static DebugCommand TP_A4;
     public static DebugCommand TP_T1;
     public static DebugCommand TP_Cent;
+    public static DebugCommand TP_End;
+    public static DebugCommand TP_Tut;
     public static DebugCommand TP_TutC;
         // Autocomplete puzzles
     public static DebugCommand Auto_Tut;
        // public static DebugCommand MORE AUTO PUZZLES!!
     public static DebugCommand<int> set_player_speed;
+    public static DebugCommand win;
     public static DebugCommand help;
 
     public List<object> commandList;
@@ -50,7 +53,7 @@ public class DebugController : MonoBehaviour
            transitionManager.CheatTP("Area4");
         });
 
-        TP_T1 = new DebugCommand("TP_T1", "Teleport directly to Reasure 1", "TP_T1", () =>
+        TP_T1 = new DebugCommand("TP_T1", "Teleport directly to Treasure 1", "TP_T1", () =>
         {
             transitionManager.CheatTP("Treasure1");
         });
@@ -59,10 +62,27 @@ public class DebugController : MonoBehaviour
         {
            transitionManager.CheatTP("Central");
         });
+
+        TP_End = new DebugCommand("TP_End", "Teleport directly to TheEnd", "TP_End", () =>
+        {
+            transitionManager.CheatTP("TheEnd");
+        });
+
+        TP_Tut = new DebugCommand("TP_Tut", "Teleport directly to Tutorial", "TP_Tut", () =>
+        {
+            transitionManager.CheatTP("Tutorial");
+        });
         
         TP_TutC = new DebugCommand("TP_TutC", "Teleport directly to Tutorial Continued", "TP_TutC", () =>
         {
            transitionManager.CheatTP("TutorialContinued");
+        });
+
+        win = new DebugCommand("win", "Win the game (it gives you keys)", "win", () =>
+        {
+            GameObject debugKeys = GameObject.FindGameObjectWithTag("DebugKeys");
+            Debug.Log(debugKeys);
+            debugKeys.transform.position = new Vector2(-3.5f, -1f);
         });
 
         help = new DebugCommand("help", "Show list of all commands", "help", ()=>
@@ -78,9 +98,12 @@ public class DebugController : MonoBehaviour
             TP_A4,
             TP_T1,
             TP_Cent, 
-            TP_TutC, 
+            TP_End,
+            TP_Tut,
+            TP_TutC,
+            win,
             help,
-            //Auto_Tut, 
+            //Auto_Tut,
             //set_player_speed
         };
     }
