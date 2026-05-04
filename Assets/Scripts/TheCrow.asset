@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f35a0dfaf3b168e49bbe856c5055efe5, type: 3}
+  m_Name: TheCrow
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
+  dialogueLines:
+  - Caw! Caw caw! ca- *cough cough*
+  - Apologies. It has been awhile since I have spoken to a human.
+  - You have traveled through the villages of my kingdom, and now you find yourself
+    in my castle.
+  - ..yes this used to be a castle, I know....
+  - You have seen the state of the villages, yes?
+  - They used to be bustling with life.
+  - They stand as they are now due to my own shortcomings.
+  - 'A long, long time ago now, a wizard came to this kingdom. '
+  - They saw how corrupt and greedy I was and how disjoint the villages of my kingdom
+    were.
+  - They turned me into a crow, locked away all the food into my castle, and gave
+    a key to each village.
+  - ..unfortunately, none of the villages could come together and unlock the tower,
+    so they starved to death.
+  - Take this kingdom as a warning, and lead your life with grace and kindness, rather
+    than cruelty and regret.
+  - Do not let your own homes devolve into chaos.
+  - Be humble and recognize your faults - lest you get turned into a crow too.
+  - Cursed to be seen as a symbol of death and watch only from above.
+  - See, I had to watch as my kingdom crumbled away.
+  - It used to be magnificient!
+  - I held feasts ALL the time.
+  - Drank the best wine!
+  - Went hunting frequently. Obviously I'd get bears and such.
+  - Oh and my steed, the most magnificient, tall horse a king could ask fo-
+  - Oh. Right. Ahem.
+  - Well. I'll be off now. Can't stick around this place anymore.
+  autoProgressLines: 0101010101010101010101010101010101010101010101
+  autoProgressDelay: 1.5
+  typingSpeed: 0.05

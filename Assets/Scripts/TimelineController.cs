@@ -61,11 +61,11 @@ public class TimelineControl : MonoBehaviour
 
     public void PauseTimeline()
     {
-        director.Pause();
+        director.playableGraph.GetRootPlayable(0).SetSpeed(0);
     }
 
     public void ResumeTimeline()
     {
-        director.Resume();
+        director.playableGraph.GetRootPlayable(0).SetSpeed(1);
     }
 }
