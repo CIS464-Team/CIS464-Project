@@ -7,16 +7,12 @@ public class TimelineControl : MonoBehaviour
 {
     // PlayableDirector component reference to control the timeline
     [SerializeField] private PlayableDirector director;
-    private LanternPickup lanternPickup;
     private GameObject player;
     private TutorialText tutorialText;
     [SerializeField] public GameObject skipText;
 
     void Start()
     {
-        // find lantern controller
-        lanternPickup = GameObject.FindFirstObjectByType<LanternPickup>();
-
         // find player object
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -42,9 +38,6 @@ public class TimelineControl : MonoBehaviour
 
         // Optionally stop the director if it doesn't stop automatically
         director.Stop();
-
-        // pickup the lantern
-        lanternPickup.PickupLantern(player);
 
         // remove the skip text
         skipText.SetActive(false);
