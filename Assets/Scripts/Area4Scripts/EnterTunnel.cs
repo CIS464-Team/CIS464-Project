@@ -108,7 +108,7 @@ public class EnterTunnel : MonoBehaviour
 
         while (elapsed < autoWalkDuration)
         {
-            playerMovement.ApplyMovement(direction * 2f);
+            playerMovement.ApplyMovement(direction * 1.2f);
             elapsed += Time.deltaTime;
             yield return null;
         }
