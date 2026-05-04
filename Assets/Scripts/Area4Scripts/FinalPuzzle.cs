@@ -14,16 +14,21 @@ public class FinalPuzzle : MonoBehaviour
     {
         block1.transform.localPosition = new Vector3(-14.3f, 3f, 0);
         block2.transform.localPosition = new Vector3(-14.3f, 1.9f, 0);
-        // Skip index 0 since that's FinalPuzzle itself
+        // Only keep track of children #3 and beyond (skip 0: self, 1: block1, 2: block2)
         Transform[] allChildren = GetComponentsInChildren<Transform>(true);
-        movablePieces = new Transform[allChildren.Length - 1];
-        for (int i = 1; i < allChildren.Length; i++)
-            movablePieces[i - 1] = allChildren[i];
-
-        // Snapshot after Start() has placed everything
-        startPositions = new Vector3[movablePieces.Length];
-        for (int i = 0; i < movablePieces.Length; i++)
-            startPositions[i] = movablePieces[i].localPosition;
+        if (allChildren.Length > 3) {
+            int trackedCount = allChildren.Length - 3;
+            movablePieces = new Transform[trackedCount];
+            for (int i = 3; i < allChildren.Length; i++)
+                movablePieces[i - 3] = allChildren[i];
+            // Snapshot after Start() has placed everything
+            startPositions = new Vector3[trackedCount];
+            for (int i = 0; i < trackedCount; i++)
+                startPositions[i] = movablePieces[i].localPosition;
+        } else {
+            movablePieces = new Transform[0];
+            startPositions = new Vector3[0];
+        }
 
         if (Area4Manager.Instance.LaserGoalsHit[3])
         {
