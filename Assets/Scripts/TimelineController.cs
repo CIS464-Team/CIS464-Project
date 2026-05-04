@@ -8,7 +8,6 @@ public class TimelineControl : MonoBehaviour
     // PlayableDirector component reference to control the timeline
     [SerializeField] private PlayableDirector director;
     [SerializeField] public int cutsceneID;
-    private LanternPickup lanternPickup;
     private GameObject player;
     private bool[] skipped = new bool[2] {false, false}; // make this as big as however many cutscenes you have!
     private TutorialText tutorialText;
