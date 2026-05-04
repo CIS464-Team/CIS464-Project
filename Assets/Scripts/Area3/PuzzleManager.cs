@@ -11,6 +11,11 @@ public class PuzzleManager : MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        
+    }
+
     public void CheckPuzzle()
     {
         //For every statue slot check if it's in the right spot
@@ -21,6 +26,7 @@ public class PuzzleManager : MonoBehaviour
 
         //When solved deactivate door and play sound
         door.SetActive(false);
+        soundManager.Instance.PlaySFX("Ice Wall 2");
         Debug.Log("Puzzle solved!");
     }
 

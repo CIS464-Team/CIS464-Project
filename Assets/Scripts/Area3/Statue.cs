@@ -23,13 +23,15 @@ public class Statue : MonoBehaviour
 
         Vector2 pushDir = GetPushDir(collision.transform);
         Vector2 targetPos = (Vector2)transform.position + (pushDir * pushDist);
-
         RaycastHit2D hit = Physics2D.Raycast(
         transform.position,
         pushDir,
         pushDist,
         ObjLayer
     );
+
+    
+
     if (hit.collider == null) StartCoroutine(Slide(targetPos));
     
     }
@@ -78,7 +80,9 @@ public class Statue : MonoBehaviour
             if(slot != null)
             {
                 transform.position = slot.transform.position;
+                soundManager.Instance.PlaySFX("PlasticBox2");
                 slot.RegisterStatue(this);
+                
                 break;
             }
         }

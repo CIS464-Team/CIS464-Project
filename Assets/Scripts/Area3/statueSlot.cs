@@ -6,6 +6,8 @@ public class statueSlot : MonoBehaviour
     public bool isOccupied = false;
     public int occupiedByID = -1;
 
+
+
 //On enter check if statue is in right slot
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -16,6 +18,10 @@ public class statueSlot : MonoBehaviour
             isOccupied = true;
             occupiedByID = statue.statueID;
             PuzzleManager.instance.CheckPuzzle();
+
+     
+           
+            
         }
     }
 
@@ -30,6 +36,8 @@ public class statueSlot : MonoBehaviour
             isOccupied = false;
             occupiedByID = -1;
             PuzzleManager.instance.CheckPuzzle();
+
+   
             }
         }
     }
