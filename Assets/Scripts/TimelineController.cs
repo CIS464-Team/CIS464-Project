@@ -7,7 +7,10 @@ public class TimelineControl : MonoBehaviour
 {
     // PlayableDirector component reference to control the timeline
     [SerializeField] private PlayableDirector director;
+    [SerializeField] public int cutsceneID;
+    private LanternPickup lanternPickup;
     private GameObject player;
+    private bool[] skipped = new bool[2] {false, false}; // make this as big as however many cutscenes you have!
     private TutorialText tutorialText;
     [SerializeField] public GameObject skipText;
 
@@ -22,14 +25,25 @@ public class TimelineControl : MonoBehaviour
 
     void Update()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (Keyboard.current.spaceKey.wasPressedThisFrame && !skipped[cutsceneID])
         {
+            skipped[cutsceneID] = true;
             SkipCutscene();
         }
     }
 
+    public void EndGame()
+    {
+        // send to end title scene (skipping loading screen)
+        SceneController.Instance
+                .NewTransition()
+                .Load(SceneDatabase.Slots.SessionContent, SceneDatabase.Scenes.EndTitle, setActive:true)
+                .Perform();
+    }
+
     public void SkipCutscene()
     {
+
         // Jump to the end of the timeline
         director.time = director.duration;
 
