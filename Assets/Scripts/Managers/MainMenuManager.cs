@@ -6,16 +6,19 @@ public class MainMenuManager : MonoBehaviour
 {
     private GameObject menuCanvas;
     private InGameMenuManager menuManager;
+    private SaveManager saveManager;
 
     void Start()
     {
         menuManager = FindFirstObjectByType<InGameMenuManager>();
         menuManager.isMainMenuActive = true;
+
+        saveManager = FindFirstObjectByType<SaveManager>();
     }
 
     public void StartSession()
     {
-        
+        saveManager.NewSaveFile();
         SceneController.Instance
             .NewTransition()
             .Load(SceneDatabase.Slots.Session, SceneDatabase.Scenes.Session)

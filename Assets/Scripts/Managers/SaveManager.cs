@@ -24,6 +24,23 @@ public class SaveManager : MonoBehaviour
         // get the key manager
         keyManager = FindFirstObjectByType<KeyManager>();
     }
+    
+    public void NewSaveFile()
+    {
+        // create save structure
+        SaveData saveData = new SaveData
+        {
+            currentArea = "Tutorial",
+            keysHeld = new bool[4],
+            laserGoalsHit = new bool[4],
+            tunnelOpen = false
+        };
+
+        // save to file
+        Debug.Log($"File saved at {saveLocation}");
+
+        File.WriteAllText(saveLocation, JsonUtility.ToJson(saveData));
+    }
 
     public void SaveGame()
     {
