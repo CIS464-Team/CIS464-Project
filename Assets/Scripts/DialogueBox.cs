@@ -54,10 +54,28 @@ public class DialogueBox : MonoBehaviour
     {
         isTyping = true;
         dialogueText.SetText("");
+        bool cheated = DebugController.Instance != null && DebugController.Instance.ICheated;
+        
+        string[] randomColors = { "#FF0000", "#00FF00", "#0000FF", "#FF00FF", "#FFFF00", "#00FFFF", "#FF6600" };
+
         foreach (char letter in currentDialogue.dialogueLines[dialogueIndex])
         {
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(currentDialogue.typingSpeed);
+            if (cheated && dialogueIndex == 15)
+            {
+                string color = randomColors[Random.Range(0, randomColors.Length)];
+                dialogueText.text += $"<color={color}>{letter}</color>";
+                yield return new WaitForSeconds(currentDialogue.typingSpeed * 0.2f);
+            }
+            else if (cheated && dialogueIndex >= 5)
+            {
+                dialogueText.text += $"<color=#FF0000>{letter}</color>";
+                yield return new WaitForSeconds(currentDialogue.typingSpeed);
+            }
+            else
+            {
+                dialogueText.text += letter;
+                yield return new WaitForSeconds(currentDialogue.typingSpeed);
+            }
         }
         isTyping = false;
 

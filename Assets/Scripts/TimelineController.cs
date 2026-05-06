@@ -26,8 +26,13 @@ public class TimelineControl : MonoBehaviour
     {
         if (Keyboard.current.spaceKey.wasPressedThisFrame && !skipped[cutsceneID])
         {
-            skipped[cutsceneID] = true;
-            SkipCutscene();
+            if(DebugController.Instance != null && DebugController.Instance.ICheated)
+            {
+                skipText.GetComponent<TMPro.TMP_Text>().text = "<s>Press space to skip</s> You can't escape this. Suffer.";
+            } else {
+                skipped[cutsceneID] = true;
+                SkipCutscene();
+            }
         }
     }
 
