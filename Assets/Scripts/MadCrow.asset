@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f35a0dfaf3b168e49bbe856c5055efe5, type: 3}
+  m_Name: MadCrow
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
+  dialogueLines:
+  - Caw! Caw caw! ca- *cough cough*
+  - Apologies. It has been awhile since I have spoken to a human.
+  - You have traveled through the villages of my kingdom, and now you find yourself
+    in my castle.
+  - ..yes this used to be a castle, I know....
+  - You have seen the state of the villages, yes?
+  - ...is what I would normally say. But you..
+  - You decided to get here the quick and dirty way.
+  - WHO TOLD YOU THE COMMAND?!?!
+  - WHY WOULD YOU TYPE 'WIN' IN IT?!?!
+  - Nevermind that it is listed when you type 'help'!
+  - Help is for the developers only!!
+  - This is a puzzle game! Figure it all out!!
+  - Anyway, now that you HAVEN'T played our game...
+  - You need to pay.
+  - Good luck getting out of this one, pal.
+  - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porttitor augue
+    non rhoncus convallis. Orci varius natoque penatibus et magnis dis parturient
+    montes, nascetur ridiculus mus. Duis at metus mollis, scelerisque nisl nec, commodo
+    mi. Cras consequat urna vel lectus euismod consequat. Donec vel nisi in ligula
+    porttitor vulputate nec pellentesque est. Nulla efficitur, augue vel pellentesque
+    tempor, erat nunc bibendum nibh, at maximus tortor libero sit amet sem. Donec
+    in nulla ac ipsum consectetur accumsan. Curabitur consequat fermentum tortor.
+    Pellentesque vitae est at nibh rutrum eleifend. Curabitur iaculis tellus rutrum
+    dui lobortis, non accumsan tellus vestibulum. Proin tincidunt tincidunt augue
+    ut dictum.  Sed lacus nisl, pulvinar in rhoncus sit amet, aliquet ut lacus. Nulla
+    ac libero sem. Sed at sem ante. Pellentesque laoreet leo id tempus auctor. Quisque
+    a condimentum ex. Suspendisse potenti. Quisque ligula ligula, auctor sagittis
+    tristique vitae, rutrum ut mauris. Aliquam erat volutpat. Pellentesque mollis,
+    mauris in rhoncus cursus, purus nulla accumsan est, eget varius dolor urna at
+    felis. Sed in quam arcu. Curabitur ultricies tempus eleifend. Sed convallis nisl
+    turpis, in volutpat metus consectetur vitae. Fusce pulvinar dolor non quam fringilla,
+    id pretium mi tempus. Nunc sit amet tortor posuere, semper ex nec, pellentesque
+    mauris. Ut volutpat ex et nisl vehicula, at semper felis faucibus.  Morbi semper
+    sem ante, ut ornare dolor porta imperdiet. Fusce ultricies tellus ut pellentesque
+    malesuada. Aenean lectus eros, ornare sit amet volutpat eu, aliquam in sem. Morbi
+    tincidunt lorem vel elit euismod, ac consequat arcu bibendum. Aenean vestibulum
+    maximus lacus, at efficitur augue viverra id. Nulla facilisis dui eget tincidunt
+    bibendum. Proin elementum sodales ullamcorper. Vestibulum placerat nibh sit amet
+    libero pretium, id gravida velit convallis. Orci varius natoque penatibus et
+    magnis dis parturient montes, nascetur ridiculus mus. Nullam ullamcorper ante
+    enim. Proin luctus nulla tortor, vitae molestie dui rutrum sodales. Maecenas
+    condimentum nulla in commodo efficitur. Nam feugiat luctus ligula, ac rhoncus
+    justo.
+  autoProgressLines: 01010101010101010101010101010101
+  autoProgressDelay: 1.5
+  typingSpeed: 0.05

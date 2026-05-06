@@ -9,6 +9,7 @@ public class DebugController : MonoBehaviour
     bool showConsole;
     bool showHelp;
     string input;
+    public bool ICheated = false;
 
     // Here's the list of commands we have:
         // TP to each area
@@ -21,9 +22,6 @@ public class DebugController : MonoBehaviour
     public static DebugCommand TP_End;
     public static DebugCommand TP_Tut;
     public static DebugCommand TP_TutC;
-        // Autocomplete puzzles
-    public static DebugCommand Auto_Tut;
-       // public static DebugCommand MORE AUTO PUZZLES!!
     public static DebugCommand<int> set_player_speed;
     public static DebugCommand win;
     public static DebugCommand help;
@@ -83,6 +81,7 @@ public class DebugController : MonoBehaviour
             GameObject debugKeys = GameObject.FindGameObjectWithTag("DebugKeys");
             Debug.Log(debugKeys);
             debugKeys.transform.position = new Vector2(-3.5f, -1f);
+            ICheated = true;
         });
 
         help = new DebugCommand("help", "Show list of all commands", "help", ()=>
@@ -102,9 +101,7 @@ public class DebugController : MonoBehaviour
             TP_Tut,
             TP_TutC,
             win,
-            help,
-            //Auto_Tut,
-            //set_player_speed
+            help
         };
     }
     

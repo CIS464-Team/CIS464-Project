@@ -8,11 +8,19 @@ public class DialogueBox : MonoBehaviour
 {
     public TimelineControl timeLineController;
     public NPCDialogue currentDialogue;
+    public NPCDialogue alternateDialogue;
     public GameObject dialogueBox;
     public TMP_Text dialogueText;
     private int dialogueIndex;
     private bool isTyping;
     
+    void Start()
+    {
+        if(DebugController.Instance != null && DebugController.Instance.ICheated)
+        {
+            currentDialogue = alternateDialogue;
+        }
+    }
     public void StartDialogue()
     {
         dialogueIndex = 0;
