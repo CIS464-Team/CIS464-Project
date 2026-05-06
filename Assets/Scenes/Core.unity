@@ -3879,6 +3879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05d81ee2871b45bea25124261a842fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveManager
+  LoadedGame: 0
 --- !u!114 &1332790537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5049,6 +5050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05d81ee2871b45bea25124261a842fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveManager
+  LoadedGame: 0
 --- !u!114 &1831831633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5444,6 +5446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05d81ee2871b45bea25124261a842fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  LoadedGame: 0
 --- !u!1 &1931488464
 GameObject:
   m_ObjectHideFlags: 0
